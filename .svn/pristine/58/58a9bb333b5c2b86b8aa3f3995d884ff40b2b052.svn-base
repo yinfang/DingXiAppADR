@@ -1,0 +1,74 @@
+package com.clubank.device;
+
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.WindowManager;
+
+import com.clubank.device.op.UserLogin;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.Result;
+
+public class SplashActivity extends BaseActivity {
+    private String verName;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager
+                .LayoutParams.FLAG_FULLSCREEN);
+        try {
+            verName = this.getPackageManager().
+                    getPackageInfo(this.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+       /* saveSetting(SPKey.CheckVersion, true);
+        saveSetting("Version", verName);
+
+        if (!TextUtils.isEmpty(JPushInterface.getUdid(this))) {
+            new MyAsyncTask(this, KeepRegistrationId.class, false).run(JPushInterface
+                    .getRegistrationID(this), JPushInterface.getUdid(this), "");
+        }*/
+        CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+              /*  String username = settings.getString("logusername", "");
+                String password = settings.getString("password", "");
+                if (U.isNetworkConnected(SplashActivity.this)) {
+                    if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+                        new MyAsyncTask(SplshActivity.this, MemberLogin.class, false).run(username,
+                                password);
+                    } else {
+                        openIntent(MainActivity.class, "");
+                        finish();
+                    }
+                } else {
+                    openIntent(MainActivity.class, "");
+                    finish();
+                }*/
+                openIntent(LoginActivity.class, "");
+                finish();
+            }
+        };
+        countDownTimer.start();
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == UserLogin.class) {
+            if (result.code == BC.SUCCESS) {
+
+            }
+        }
+    }
+
+}

@@ -1,0 +1,49 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+
+import com.clubank.device.op.BannIconList;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+public class MemberInputActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setHeaderTitle(R.string.app_name);
+        hide(R.id.header_back);
+        initView();
+//        new MyAsyncTask(this, BannIconList.class).run();
+    }
+
+    private void initView() {
+
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == BannIconList.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+
+            }
+        }
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            /*case R.id.head_photo_ll://打开侧边栏
+
+                break;*/
+        }
+    }
+}
+
+
+

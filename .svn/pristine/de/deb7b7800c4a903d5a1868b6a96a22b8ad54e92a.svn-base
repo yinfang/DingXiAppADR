@@ -1,0 +1,136 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.clubank.device.op.LessonClassList;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+import com.clubank.util.UI;
+
+/**
+ * 扫码核销成功
+ */
+public class TicketScanSuccessActivity extends BaseActivity implements TextWatcher {
+    private String type, temp;
+    private MyRow ro;
+    private EditText commentMsg;
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ticketscan_success);
+        Bundle b = getIntent().getExtras();
+        ro = U.getRow(b, "row");
+        if (null != ro) {
+            setDetails(ro);
+        }
+        commentMsg = findViewById(R.id.class_comment);
+        commentMsg.addTextChangedListener(this);
+    }
+
+    private void setDetails(MyRow row) {
+        type = row.getString("type");
+        //tyep：ticket 票务核销 lesson 签课核销
+        if (type.equals("ticket")) {
+            show(R.id.verify_ll);
+             /*setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+        setEText(R.id.succ_desc, getString(R.string.verify_success));
+        setEText(R.id.succ_desc1, getString(R.string.succ_desc));
+        setEText(R.id.title, row.getString(""));
+        setEText(R.id.num, row.getString(""));
+        setEText(R.id.time, row.getString("").substring(0, 16));
+        setEText(R.id.place, row.getString(""));*/
+
+        } else if (type.equals("lesson")) {
+            show(R.id.class_ll);
+          /*  ((Button) findViewById(R.id.finish)).setText(getString(R.string.finish));
+            setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.class_succ));
+            setEText(R.id.succ_desc, getString(R.string.class_success));
+            hide(R.id.succ_desc1);
+            setEText(R.id.class_name, row.getString(""));
+            setEText(R.id.class_time, row.getString("").substring(0, 16));
+            setEText(R.id.class_member, row.getString(""));*/
+
+        }
+
+       /* show(R.id.xiao_ll);
+        setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+        setEText(R.id.succ_desc, getString(R.string.xiao_success));
+        setEText(R.id.succ_desc1, getString(R.string.succ_desc1));
+        setEText(R.id.title1, row.getString(""));
+        setEText(R.id.time1, row.getString("").substring(0, 16));
+        setEText(R.id.place1, row.getString(""));
+        setEText(R.id.seat, row.getString(""));*/
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.finish://返回主页
+                String text = getEText(R.id.finish);
+                if (type.equals("ticket")) {
+                    openIntent(TicketScanActivity.class, R.string.ticket_verify);
+                    finish();
+                } else if (type.equals("lesson")) {
+                    new MyAsyncTask(this, LessonClassList.class).run(ro.getString("aid"), android.util.Base64.encodeToString(getEText(R.id.class_comment).getBytes(), android.util.Base64.NO_WRAP));
+                } else {
+                    openIntent(MainActivity.class, R.string.app_name);
+                    finish();
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == LessonClassList.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(this, result.msg);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openIntent(MainActivity.class, R.string.app_name);
+                        finish();
+                    }
+                }, 1500);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        temp = charSequence.toString();
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        int num = commentMsg.getSelectionEnd();
+        if (num > 200) {
+            UI.showToast(this, "您最多只能输入200字");
+            commentMsg.setText(temp.substring(0, 200));
+        }
+    }
+}
+
+
+

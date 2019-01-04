@@ -1,0 +1,227 @@
+package com.clubank.knightclub.own;
+
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+
+import com.clubank.device.VerifyCodeActivity;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.knightclub.MainActivity;
+import com.clubank.knightclub.R;
+import com.clubank.knightclub.home.MemberAuthActivity;
+import com.clubank.knightclub.op.GetMemberInfo;
+import com.clubank.knightclub.op.GetVerificationCode;
+import com.clubank.knightclub.op.Login;
+import com.clubank.knightclub.op.Memcardlist;
+import com.clubank.knightclub.op.PerPaidCardList;
+import com.clubank.knightclub.util.BC;
+import com.clubank.knightclub.util.User;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.SPUtil;
+import com.clubank.util.ToastUtile;
+import com.clubank.util.UI;
+
+import cn.jpush.android.api.JPushInterface;
+
+/**
+ * 登录
+ */
+public class LoginActivity extends VerifyCodeActivity implements View.OnFocusChangeListener,
+        TextWatcher {
+
+    ImageView ivDeleteMobile;
+    EditText edtMobile, edtVerify;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager
+                .LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_login);
+        SPUtil.saveSetting("jpushId", JPushInterface.getRegistrationID(this));
+        hide(R.id.header_back);
+        setHeaderTitle(R.string.login);
+        hide(R.id.tv_register);
+        hide(R.id.tv_lost_pass);
+        btnAsk = findViewById(R.id.tv_get_verify);
+//        setEText(R.id.edt_name, "18601040408");
+        if (BC.PACKAGE_TYPE == 3) {
+            setEText(R.id.edt_name, "15109201431");
+//            setEText(R.id.edt_name, "15802984395");
+            setEText(R.id.edt_verfycode, "111111");
+        }
+        Button btnLogin = findViewById(R.id.btn_login);
+        ivDeleteMobile = findViewById(R.id.iv_delete_mobile);
+        edtMobile = findViewById(R.id.edt_name);
+        edtMobile.setOnFocusChangeListener(this);
+        edtMobile.addTextChangedListener(this);
+        edtVerify = findViewById(R.id.edt_verfycode);
+        edtVerify.setOnFocusChangeListener(this);
+    }
+
+
+    @Override
+    public void doWork(View view) {
+        super.doWork(view);
+        switch (view.getId()) {
+            case R.id.btn_login:
+                memberLogin();
+//                openIntent(MemberAuthActivity.class, getString(R.string.member_auth));
+                break;
+            case R.id.tv_register:
+                openIntent(RegisterActivity.class, getString(R.string.register));
+                break;
+            case R.id.tv_lost_pass:
+                openIntent(ForgetPWActivity.class, getString(R.string.forget_password));
+                break;
+            case R.id.tv_get_verify:
+                getVerifyCode();
+                break;
+            case R.id.iv_delete_mobile:
+                setEText(R.id.edt_name, "");
+                break;
+        }
+    }
+
+    private void getVerifyCode() {
+        String phone = getEText(R.id.edt_name);
+        if (TextUtils.isEmpty(phone)) {
+            ToastUtile.showText(this, getString(R.string.hint_login_name));
+            return;
+        }
+        new MyAsyncTask(this, GetVerificationCode.class).run(phone);
+    }
+
+    private void memberLogin() {
+        String phone = getEText(R.id.edt_name);
+        String verfyCode = getEText(R.id.edt_verfycode);
+        if (TextUtils.isEmpty(phone)) {
+            ToastUtile.showText(this, getString(R.string.hint_login_name));
+            return;
+        }
+        if (TextUtils.isEmpty(verfyCode)) {
+            ToastUtile.showText(this, getString(R.string.hint_verify_code));
+            return;
+        }
+        new MyAsyncTask(this, Login.class).run(phone, verfyCode);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == Login.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                resetAsk();
+                MyRow row = (MyRow) result.obj;
+//                {"userid":"15109201431","token":"\"N4NJ8B2F86Z8X8\"","isAuthorized":1}
+                saveSetting("userId", row.getString("userid"));
+                saveSetting("token", row.getString("token"));
+                User.getIn().setAuthorized(row.getInt("isAuthorized") == 1);
+                User.getIn().setUserId(row.getString("userid"));
+                if (row.getInt("isAuthorized") == 1) {
+                    openIntent(MainActivity.class, "");
+                    finish();
+                } else {
+                    openIntent(MemberAuthActivity.class, getString(R.string.member_auth));
+                }
+                new MyAsyncTask(this, GetMemberInfo.class, false).run(row.getString("userid"), BC
+                        .ClubCode);
+
+            } else {
+                ToastUtile.showText(this, result.msg);
+            }
+        } else if (op == GetVerificationCode.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                disableAskButton();
+                UI.showToast(this, result.msg);
+            } else {
+                ToastUtile.showText(this, result.msg);
+                Log.d(TAG, "onPostExecute: " + result.obj);
+            }
+        } else if (op == GetMemberInfo.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyRow row = (MyRow) result.obj;
+                User.getIn().GetMemberInfoSuccess(row);
+                new MyAsyncTask(this, Memcardlist.class, false).run(User.getIn().getUserId());
+                new MyAsyncTask(this, PerPaidCardList.class).run(User.getIn().getUserId());
+            }
+        } else if (op == Memcardlist.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                if (data != null && data.size() > 0) {
+                    User.getIn().setMemberCards(data);
+                }
+            }
+        }else if (op == PerPaidCardList.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                User.getIn().setMemValueCards(data);
+            }
+        }
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) {
+            if (v.getId() == R.id.edt_name) {
+                if (TextUtils.isEmpty(getEText(R.id.edt_name))) {
+                    ivDeleteMobile.setVisibility(View.INVISIBLE);
+                } else {
+                    ivDeleteMobile.setVisibility(View.VISIBLE);
+                }
+            } else {
+                ivDeleteMobile.setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (TextUtils.isEmpty(getEText(R.id.edt_name))) {
+            ivDeleteMobile.setVisibility(View.INVISIBLE);
+        } else {
+            ivDeleteMobile.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishApp();
+    }
+//
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            finishApp();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+//
+    private void finishApp(){
+        app.finishAllActivites();
+    }
+}

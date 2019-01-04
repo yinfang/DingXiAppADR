@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.jiguang.sdk:jcore-1.2.3">
+    <CLASSES>
+      <root url="jar://D:/gradle/caches/transforms-1/files-1.1/jcore-1.2.3.aar/b999ef08764e18c5bf6d42a124d480fd/jars/libs/jcore-android-1.2.3.jar!/" />
+      <root url="jar://D:/gradle/caches/transforms-1/files-1.1/jcore-1.2.3.aar/b999ef08764e18c5bf6d42a124d480fd/jars/classes.jar!/" />
+      <root url="file://D:/gradle/caches/transforms-1/files-1.1/jcore-1.2.3.aar/b999ef08764e18c5bf6d42a124d480fd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/gradle/caches/modules-2/files-2.1/cn.jiguang.sdk/jcore/1.2.3/94699c357ed760ee220e1751b6a9a57448b567ef/jcore-1.2.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

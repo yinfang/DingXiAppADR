@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">定西体育</string>
+    <string name="settings">设置</string>
+    <!--首页-->
+    <string name="active_apply">活动申请</string>
+    <string name="active_apply_desc">场馆赛事活动申请</string>
+    <string name="member_input">会员录入</string>
+    <string name="member_input_desc">场馆会员注册、资料录入</string>
+    <string name="ticket_verify">扫码核销</string>
+    <string name="ticket_verify_desc">票务、预约、活动二维码快速核销</string>
+    <string name="business_statistic">营业统计</string>
+    <string name="business_statistic_desc">场馆经营数据统计分析</string>
+
+    <string name="class_mng">排课管理</string>
+    <string name="class_mng_desc">个人可预约时间安排</string>
+    <string name="class_order">课程订单</string>
+    <string name="class_order_desc">培训课程订单</string>
+    <string name="booking_mng">新建预约</string>
+    <string name="booking_mng_desc">快速为学员预约课程</string>
+    <string name="booking_record">预约记录</string>
+    <string name="booking_record_desc">培训课程预约记录</string>
+
+    <string name="active_approve">活动审批</string>
+    <string name="active_approve_desc">场馆各类活动审批</string>
+    <string name="approve_record">审批记录</string>
+    <string name="approve_record_desc">场馆各类活动审批记录</string>
+    <string name="business_statistic1">营业统计</string>
+    <string name="business_statistic_desc1">场馆各类营销内容</string>
+
+    <string name="member_info">个人信息</string>
+    <string name="modify_pass">修改密码</string>
+    <string name="login_out">注销登录</string>
+
+    <!--扫描-->
+    <string name="scan">扫码</string>
+    <string name="nfc_read">NFC读卡</string>
+    <string name="picc_read">PICC读卡</string>
+    <string name="lbl_countDown">倒计时</string>
+    <string name="lbl_second">秒</string>
+    <string name="lbl_noNFC">此设备不支持（NFC）功能！</string>
+
+    <!--picc-->
+    <string name="action_settings">Version</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="code">获得签名</string>
+    <string name="writecard">write m1</string>
+    <string name="m1_card">M1 Card</string>
+    <string name="picc_block_data">Block data:</string>
+    <string name="picc_write_clear">Clear</string>
+    <string name="picc_def_apdu">APDU</string>
+    <string name="picc_send_apdu">Send APDU</string>
+    <string name="picc_digits">0123456789ABCDEFabcdef</string>
+    <string name="picc_block_no_none">Please enter the Block number</string>
+    <string name="picc_block_no_illegal">The range of value of Block number is 0～63</string>
+    <string name="picc_authen_fail">Authen fail</string>
+    <string name="picc_operate_fail">Operate fail</string>
+    <string name="picc_block_data_none">Please enter the data</string>
+    <string name="picc_active_fail">Active fail</string>
+    <string name="picc_apdu_hint">HEX, 16 byte (e.g. 0A4F…)</string>
+    <string name="picc_apdu_key">Authen KEY HEX, 6 byte (e.g. 0A4F…)</string>
+    <string name="picc_authen_before">Please click on the Authen button</string>
+</resources>

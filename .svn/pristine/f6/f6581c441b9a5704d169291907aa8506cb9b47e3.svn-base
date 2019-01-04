@@ -1,0 +1,169 @@
+package com.clubank.device;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.clubank.device.op.BannIconList;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.loader.ImageLoader;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends BaseActivity {
+    private Banner banner;
+    private ViewFlipper viewFlipper;
+    private LinearLayout llFlipper;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setHeaderTitle(R.string.app_name);
+        initView();
+//        new MyAsyncTask(this, BannIconList.class).run();
+    }
+
+    private void initView() {
+        viewFlipper = findViewById(R.id.view_flipper);
+        List<String> imagelist = new ArrayList<>();
+        banner = findViewById(R.id.banner);
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setImages(imagelist);
+        banner.setDelayTime(5000);
+        LinearLayout.LayoutParams dimens =
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, screen.getWidth() / 2);
+        banner.setLayoutParams(dimens);
+        //设置指示器位置
+        banner.setIndicatorGravity(BannerConfig.CENTER);
+        banner.start();
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == BannIconList.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                updateBanner(banner, data);
+                setViews(data);
+            }
+        }
+    }
+
+    private void updateBanner(Banner banner, MyData data) {
+        ArrayList<String> imgUrl = new ArrayList<>();
+        if (data != null && data.size() > 0) {
+            for (int i = 0; i < data.size(); i++) {
+                imgUrl.add(data.get(i).getString("PicUrl"));
+            }
+            banner.update(imgUrl);
+        }
+    }
+
+    private void setViews(final MyData data) {
+        int viewNum;
+        if (null != data && data.size() > 0) {
+            //计算ViewFlipper视图的数目
+            if (data.size() == 1) {
+                viewNum = data.size() / 2 + 1;
+            } else {
+                data.addAll(data);
+                viewNum = data.size() / 2;
+            }
+            for (int i = 0; i < viewNum; i++) {
+                //每一个视图的第一个新闻标题中集合中的下标值
+                final int position = i * 2;
+                View itemView = View.inflate(this, R.layout.title_view, null);
+                TextView tvTitle1 = itemView.findViewById(R.id.tv_title1);
+                TextView tvTitle2 = itemView.findViewById(R.id.tv_title2);
+                TextView tvType = itemView.findViewById(R.id.tv_type);
+                TextView tvType2 = itemView.findViewById(R.id.tv_type2);
+                LinearLayout ll = itemView.findViewById(R.id.ll_second);
+                if (data.get(position).getInt("typeId") == 1) {   //1.新闻
+                    tvType.setText("新闻");
+                } else if (data.get(position).getInt("typeId") == 2) {     //2，公告
+                    tvType.setText("公告");
+                }
+                tvTitle1.setText(data.get(position).getString("title"));
+                //判断第二行是否有数据
+                if (position + 1 < data.size()) {
+                    if (data.get(position + 1).getInt("typeId") == 1) {   //1.新闻
+                        tvType2.setText("新闻");
+                    } else if (data.get(position + 1).getInt("typeId") == 2) {     //2，公告
+                        tvType2.setText("公告");
+                    }
+                    tvTitle2.setText(data.get(position + 1).getString("title"));
+                } else {
+                    //表示该视图的第二个标题没有数据，隐藏第二行布局
+                    ll.setVisibility(View.GONE);
+                }
+                //标题1的点击事件
+                tvTitle1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String nId = data.get(position).getString("nId");
+                        Bundle bundle = new Bundle();
+                        bundle.putString("nId", nId);
+//                        openIntent(InfoDetailActivity.class, "资讯详情", bundle);
+                    }
+                });
+
+                //标题2的点击事件
+                tvTitle2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String nId = data.get(position + 1).getString("nId");
+                        Bundle bundle = new Bundle();
+                        bundle.putString("nId", nId);
+//                        openIntent(InfoDetailActivity.class, "资讯详情", bundle);
+                    }
+                });
+
+                viewFlipper.addView(itemView);
+            }
+            //视图进入动画
+            viewFlipper.setInAnimation(this, R.anim.new_in);
+            //视图退出动画
+            viewFlipper.setOutAnimation(this, R.anim.new_out);
+            //自动开始滚动
+            // viewFlipper.setAutoStart(true);
+            //视图的切换间隔
+            viewFlipper.setFlipInterval(5000);//设置自动切换的间隔时间
+            viewFlipper.startFlipping();//开启切换效果
+        }
+    }
+}
+
+class GlideImageLoader extends ImageLoader {
+    @Override
+    public void displayImage(Context context, Object path, ImageView imageView) {
+        RequestOptions options = new RequestOptions().placeholder(R.drawable.placeholderimg);
+        Glide.with(context).asBitmap().apply(options).load(path).into
+                (imageView);
+    }
+
+    @Override
+    public ImageView createImageView(Context context) {
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        return imageView;
+    }
+}
+

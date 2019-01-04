@@ -1,0 +1,302 @@
+package com.clubank.device;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.clubank.View.ListViewInScrollView;
+import com.clubank.device.op.AppPrivilege;
+import com.clubank.device.op.BannIconList;
+import com.clubank.device.op.Logout;
+import com.clubank.device.op.UserLogin;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.domain.User;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.loader.ImageLoader;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+    private Banner banner;
+    private ViewFlipper viewFlipper;
+    private MainListAdapter adapter;
+    private DrawerLayout mDrawerLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setHeaderTitle(R.string.app_name);
+        hide(R.id.header_back);
+        initView();
+
+        setViews(testData());
+        String username = "test11";
+        String password = "123";
+        new MyAsyncTask(this, UserLogin.class).run(username, password);
+    }
+
+    private MyData testData() {
+        MyData data = new MyData();
+        for (int i = 0; i < 11; i++) {
+            MyRow ro = new MyRow();
+            ro.put("typeId", 1);
+            ro.put("nId", 1);
+            ro.put("title", "测试滚动新闻数据" + (i + 1));
+            data.add(ro);
+        }
+        return data;
+    }
+
+    private void initView() {
+        initEvents();
+        ListViewInScrollView listview = findViewById(R.id.main_list);
+        listview.setOnItemClickListener(this);
+        adapter = new MainListAdapter(this, new MyData());
+        listview.setAdapter(adapter);
+
+        viewFlipper = findViewById(R.id.view_flipper);
+        ImageView photoBg = findViewById(R.id.photo_bg);
+        photoBg.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, screen.getHeight() / 3));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//状态栏透明
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            int statusBarHeight = -1;
+            //获取status_bar_height资源的ID
+            int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                //根据资源ID获取响应的尺寸值
+                statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+                findViewById(R.id.status_view).setMinimumHeight(statusBarHeight);
+            } else {
+                statusBarHeight = UI.toPixel(this, 24);
+                findViewById(R.id.status_view).setMinimumHeight(statusBarHeight);
+            }
+        }
+        List<String> imagelist = new ArrayList<>();
+        imagelist.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536064068165&di=52ce2cddf7c7c9387ea510a6735142ee&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F09%2F09%2F147339592392689600.JPEG");
+        imagelist.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536064089586&di=e8ed766aa023c97997cb470f49744aec&imgtype=0&src=http%3A%2F%2Fimage.mamicode.com%2Finfo%2F201801%2F20180127215523748600.png");
+        imagelist.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536064068165&di=52ce2cddf7c7c9387ea510a6735142ee&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F09%2F09%2F147339592392689600.JPEG");
+        banner = findViewById(R.id.banner);
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setImages(imagelist);
+        banner.setDelayTime(5000);
+        FrameLayout.LayoutParams dimens =
+                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, screen.getHeight() / 3);
+        banner.setLayoutParams(dimens);
+        //设置指示器位置
+        banner.setIndicatorGravity(BannerConfig.CENTER);
+        banner.start();
+    }
+
+    private void initEvents() {
+        mDrawerLayout = findViewById(R.id.drawer_ll);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,
+                Gravity.RIGHT);
+        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                Log.d("wyy", "侧拉菜单打开了");
+                drawerView.setClickable(true);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                Log.d("wyy", "侧拉菜单关闭了");
+                drawerView.setClickable(false);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+            }
+        });
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == UserLogin.class) {
+            if (result.code == BC.SUCCESS) {
+                String data = result.obj.toString();
+                User user = User.getIn();
+                user.setToken(data);
+                new MyAsyncTask(this, AppPrivilege.class).run();
+            }else{
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == AppPrivilege.class) {
+            if (result.code == BC.SUCCESS) {
+                MyData data = (MyData) result.obj;
+                for (MyRow ro : data) {
+                    adapter.add(ro);
+                }
+                adapter.notifyDataSetChanged();
+            }else{
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == Logout.class) {
+            if (result.code == BC.SUCCESS) {
+//                User.getIn().setToken("");
+//                finish();
+//                openIntent(LoginAcivity.class,"登陆");
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == BannIconList.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                updateBanner(banner, data);
+                setViews(data);
+            }
+        }
+    }
+
+    private void updateBanner(Banner banner, MyData data) {
+        ArrayList<String> imgUrl = new ArrayList<>();
+        if (data != null && data.size() > 0) {
+            for (int i = 0; i < data.size(); i++) {
+                imgUrl.add(data.get(i).getString("PicUrl"));
+            }
+            banner.update(imgUrl);
+        }
+    }
+
+    private void setViews(final MyData data) {
+        if (null != data && data.size() > 0) {
+            for (int i = 0; i < data.size(); i++) {
+                //每一个视图的第一个新闻标题中集合中的下标值
+                final int position = i;
+                View itemView = View.inflate(this, R.layout.title_view, null);
+                TextView tvTitle1 = itemView.findViewById(R.id.tv_title1);
+                tvTitle1.setText(data.get(position).getString("title"));
+                tvTitle1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String nId = data.get(position).getString("nId");
+                        Bundle bundle = new Bundle();
+                        bundle.putString("nId", nId);
+//                        openIntent(InfoDetailActivity.class, "资讯详情", bundle);
+                    }
+                });
+                viewFlipper.addView(itemView);
+            }
+            //视图进入动画
+            viewFlipper.setInAnimation(this, R.anim.new_in);
+            //视图退出动画
+            viewFlipper.setOutAnimation(this, R.anim.new_out);
+            //自动开始滚动
+            // viewFlipper.setAutoStart(true);
+            //视图的切换间隔
+            viewFlipper.setFlipInterval(5000);//设置自动切换的间隔时间
+            viewFlipper.startFlipping();//开启切换效果
+        }
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.head_photo_ll://打开侧边栏
+                mDrawerLayout.openDrawer(Gravity.LEFT);
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED,
+                        Gravity.LEFT);
+                break;
+            case R.id.member_info_ll://个人信息
+                UI.showToast(this, "个人信息");
+                break;
+            case R.id.modify_pass_ll://修改密码
+                UI.showToast(this, "修改密码");
+                break;
+            case R.id.login_out://注销登陆
+                new MyAsyncTask(this, Logout.class).run();
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        MyRow row = (MyRow) adapterView.getItemAtPosition(i);
+        String code = row.getString("Code");
+        switch (code) {
+            case "AppPrivielge_01"://活动申请
+                UI.showToast(this, "活动申请");
+                break;
+            case "AppPrivielge_02"://活动审批
+                UI.showToast(this, "活动审批");
+                break;
+            case "AppPrivielge_03"://审批记录
+
+                break;
+            case "AppPrivielge_04"://扫码核销
+
+                break;
+            case "AppPrivielge_05"://排课管理
+
+                break;
+            case "AppPrivielge_06"://课程订单
+
+                break;
+            case "AppPrivielge_07"://新建预约
+
+                break;
+            case "AppPrivielge_08"://预约记录
+
+                break;
+            case "AppPrivielge_09"://营业统计
+
+                break;
+            case "AppPrivielge_10"://会员录入
+                openIntent(MemberInputActivity.class, R.string.member_input);
+                break;
+        }
+    }
+}
+
+class GlideImageLoader extends ImageLoader {
+    @Override
+    public void displayImage(Context context, Object path, ImageView imageView) {
+        RequestOptions options = new RequestOptions().placeholder(R.drawable.placeholderimg);
+        Glide.with(context).asBitmap().apply(options).load(path).into
+                (imageView);
+    }
+
+    @Override
+    public ImageView createImageView(Context context) {
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        return imageView;
+    }
+}
+

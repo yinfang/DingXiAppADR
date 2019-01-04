@@ -1,0 +1,37 @@
+package com.clubank.device;
+
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+/**
+ * 选择学员课程Adapter
+ */
+public class ChooseClassListAdapter extends BaseAdapter {
+    public ChooseClassListAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.item_choose_class, data);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        super.display(position, v, row);
+        ImageView check_img = v.findViewById(R.id.check_img);
+        boolean check = row.getBoolean("checked");
+        if (check) {
+            check_img.setVisibility(View.VISIBLE);
+        } else {
+            check_img.setVisibility(View.INVISIBLE);
+        }
+        setImage(R.id.head_img, row.getString("ImgUrl"));
+        setEText(R.id.tv_name, row.getString("ContactsName"));
+        setEText(R.id.tv_title, row.getString("LessonName"));
+        setEText(R.id.tv_has_class, "已上" + row.getInt("ConsumeHour") + "节/");
+        setEText(R.id.tv_totle_class, "总共" + row.getInt("TotalHour") + "节");
+    }
+
+}

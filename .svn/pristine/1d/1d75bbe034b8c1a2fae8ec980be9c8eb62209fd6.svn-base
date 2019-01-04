@@ -1,0 +1,112 @@
+package com.clubank.knightclub.own;
+
+import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import com.clubank.device.BaseActivity;
+import com.clubank.domain.Result;
+import com.clubank.knightclub.R;
+import com.clubank.knightclub.home.SelectBallFriendAdapter;
+import com.clubank.knightclub.util.MainTabEntity;
+import com.clubank.knightclub.widget.RecyclerViewDecration;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.SegmentTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+/**
+ * 积分
+ */
+public class MyIntegralActivity extends BaseActivity implements OnTabSelectListener {
+    private MyData data;
+    private CommonTabLayout tabLayout;
+    ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+    private MyPurseAdapter adapter = null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_integral);
+        initView();
+        refreshData();
+    }
+
+    private void initView() {
+        findViewById(R.id.header_ll).setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, screen.getHeight() / 4));
+        setEText(R.id.all_integral, "1000000");
+        tabLayout = findViewById(R.id.tablayout);
+        tabs.add(new MainTabEntity("全部", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("收入", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("支出", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabLayout.setTabData(tabs);
+        tabLayout.setOnTabSelectListener(this);
+        data = new MyData();
+        testData();
+        ListView list = findViewById(R.id.listView);
+        adapter = new MyPurseAdapter(this, data);
+        adapter.isPurse = false;
+        list.setAdapter(adapter);
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+       /* if (op == GetListMembershipByCode.class) {
+            if (result.code == RT.SUCCESS) {
+               data = (MyData) result.obj;
+                for (MyRow row : data) {
+                    adapter.add(row);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        }*/
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        switch (position) {
+            case 0://全部
+
+                break;
+            case 1://收入
+
+                break;
+            case 2://支出
+
+                break;
+        }
+//        refreshData(true,GetListMembershipByCode.class);
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
+    }
+
+    private void testData() {
+        for (int i = 0; i < 20; i++) {
+            MyRow row = new MyRow();
+            row.put("orderNo", "16545454");
+            row.put("Status", "1");
+            row.put("CreateDate", "2017-10-02T12:14:54");
+            row.put("amount", "400");
+            data.add(row);
+        }
+    }
+}

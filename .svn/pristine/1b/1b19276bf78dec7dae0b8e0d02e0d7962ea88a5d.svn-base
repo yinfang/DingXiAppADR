@@ -1,0 +1,248 @@
+package com.clubank.device;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+
+import com.clubank.View.MyGridList;
+import com.clubank.device.op.LessonStatus;
+import com.clubank.device.op.LessonTime;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.MainTabEntity;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+/**
+ * 排课管理
+ */
+public class ClassMngActivity extends BaseActivity implements AdapterView.OnItemClickListener, OnTabSelectListener {
+    private String from;
+    private CommonTabLayout commonTabLayout;
+    private ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+    private GridView dateGrid;
+    private MyGridList timeGrid, dataGrid;
+    private ClassDateGridAdapter dateAdapter;
+    private ClassTimeGridAdapter timeAdapter;
+    private ClassDataGridAdapter gridAdapter;
+    private MyData dateData, timeData, gridDate, selectedDates;
+    private int week = 0, height;//-1代表上一周，0 本周，1代表下一周
+    private boolean changeWeek = true;//是否点击了切换周期
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_class_manage);
+        tabs.add(new MainTabEntity("〈 上周", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("本周", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("下周 〉", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        commonTabLayout = findViewById(R.id.tablayout);
+        commonTabLayout.setTabData(tabs);
+        commonTabLayout.setOnTabSelectListener(this);
+        commonTabLayout.setCurrentTab(1);
+
+        Bundle b = getIntent().getExtras();
+        from = b.getString("from");
+        if (from.equals("AppPrivielge_05")) {//排课管理
+            show(R.id.manage_ll);
+        } else {//课程预约
+            show(R.id.btn_sure);
+        }
+        dateData = new MyData();
+        timeData = new MyData();
+        gridDate = new MyData();
+        selectedDates = new MyData();
+        height = screen.getWidth() / 8;
+        dateGrid = findViewById(R.id.date_grid);
+        dateGrid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
+        timeGrid = findViewById(R.id.time_grid);
+        timeGrid.setLayoutParams(new LinearLayout.LayoutParams(height, ViewGroup.LayoutParams.WRAP_CONTENT));
+        dataGrid = findViewById(R.id.data_grid);
+        dataGrid.setOnItemClickListener(this);
+        refreshData();
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, LessonTime.class).run(week);
+    }
+
+    public void setAdapters() {
+        dateAdapter = new ClassDateGridAdapter(this, dateData);
+        timeAdapter = new ClassTimeGridAdapter(this, timeData);
+        gridAdapter = new ClassDataGridAdapter(this, gridDate);
+        dateGrid.setAdapter(dateAdapter);
+        timeGrid.setAdapter(timeAdapter);
+        dataGrid.setAdapter(gridAdapter);
+        changeWeek = false;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        MyRow row = (MyRow) parent.getItemAtPosition(position);
+        int Status = row.getInt("Status");
+        if (from.equals("AppPrivielge_05")) {//排课管理  可选择多个时间段排课或取消排课
+            MyRow ro = new MyRow();
+            ro.put("ClassTimeDetailId", row.getString("LessonId"));
+            ro.put("AppointmentDate", row.getString("Date"));
+            switch (Status) {
+                case 0://未选状态可排课
+                    row.put("checked", true);
+                    ro.put("Status", 9);
+                    selectedDates.add(ro);
+                    break;
+                case 1://已选状态可取消排课
+                    row.put("checked", false);
+                    ro.put("Status", 0);
+                    selectedDates.add(ro);
+                    break;
+                case 2://已约、过期已约学员课程点击弹框查看详情
+                case 3:
+                case 99:
+                    //TODO 弹框
+
+
+                    break;
+            }
+        } else {//课程预约  一次只可预约一个时间段
+            if (Status == 1) {//可约
+                selectedDates = new MyData();
+                for (MyRow r : gridDate) {
+                    r.put("checked", false);
+                }
+                row.put("checked", true);
+                MyRow date = new MyRow();
+                date.put("date", row.getString("Date"));
+                date.put("time", timeData.get(position).getString("ClassRange"));
+                selectedDates.add(date);
+            }
+        }
+        gridAdapter.notifyDataSetChanged();
+    }
+
+    public void doWork(View v) {
+        switch (v.getId()) {
+            case R.id.btn_all://全选
+                for (MyRow rr : gridDate) {//gridView 适配数据
+                    int status = rr.getInt("Status");
+                    if (status != 2 && status != 3 & status != 9) {//除已过期已预约 全部选中
+                        rr.put("checked", true);
+                    }
+                    MyRow ro = new MyRow();
+                    ro.put("ClassTimeDetailId", rr.getString("LessonId"));
+                    ro.put("AppointmentDate", rr.getString("Date"));
+                    ro.put("Status", 0);
+                    selectedDates.add(ro);
+                }
+
+                gridAdapter.notifyDataSetChanged();
+                break;
+            case R.id.btn_copy://复制上周
+
+                break;
+            case R.id.btn_pai://设为未安排
+                new MyAsyncTask(this, LessonStatus.class).run(selectedDates);
+                break;
+            case R.id.btn_yue://设为可预约
+                new MyAsyncTask(this, LessonStatus.class).run(selectedDates);
+                break;
+            case R.id.btn_sure://确定时间
+                Intent in = new Intent();
+                MyRow ro = selectedDates.get(0);
+                in.putExtra("date", ro.getString("Date"));
+                in.putExtra("time", ro.getString("ClassRange"));
+                setResult(RESULT_OK, in);
+                break;
+        }
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == LessonTime.class) {
+            if (result.code == BC.SUCCESS) {
+                MyData data = (MyData) result.obj;
+                for (MyRow row : data) {//时间数据
+                    if (changeWeek) {
+                        timeData.add(row);
+                    }
+                    MyData data1 = (MyData) row.get("ClassDetail");
+                    for (MyRow rr : data1) {//gridView 适配数据
+                        row.put("checked", false);
+                        gridDate.add(rr);
+                    }
+                }
+                if (changeWeek) {
+                    MyData dates = (MyData) data.get(0).get("ClassDetail");//周和日期
+                    for (MyRow row : dates) {
+                        dateData.add(row);
+                    }
+                }
+                setAdapters();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == LessonStatus.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(this, result.msg);
+                refreshData();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        switch (position) {
+            case 0:
+                week = -1;
+                break;
+            case 1:
+                week = 0;
+                break;
+            case 2:
+                week = 1;
+                break;
+        }
+        changeWeek = true;
+        dateData = new MyData();
+        timeData = new MyData();
+        gridDate = new MyData();
+        refreshData();
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
+    }
+
+    class ClassTimeGridAdapter extends BaseAdapter {
+
+        public ClassTimeGridAdapter(BaseActivity a, MyData data) {
+            super(a, R.layout.pop_item, data);
+        }
+
+        @Override
+        protected void display(int position, View v, MyRow row) {
+            super.display(position, v, row);
+            LinearLayout ll = v.findViewById(R.id.ll);
+            ll.setLayoutParams(new LinearLayout.LayoutParams(height, height));
+            setEText(R.id.title, row.getString("StartTime").substring(11, 16));
+        }
+    }
+}

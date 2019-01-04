@@ -1,0 +1,71 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+import com.clubank.dingxi.R;
+import com.clubank.domain.Result;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+/**
+ * 活动审批 ---申请列表
+ */
+public class ApplyListActivity extends BaseActivity {
+    private ApplyListAdapter adapter;
+    private MyData data;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_apply_record_list);
+        data = new MyData();
+        ListView list = findViewById(R.id.list);
+        adapter = new ApplyListAdapter(this, data);
+        addEmptyView(list);
+        list.setAdapter(adapter);
+        refreshData();
+    }
+
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+//        new MyAsyncTask(this, GetBanquetOrder.class).run(criteria.PageIndex, criteria.PageSize);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+      /*  if (op == GetBanquetOrder.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                listAdapter.addAll(data);
+                if (listAdapter.getCount() < 1) {
+                    show(R.id.emptyview);
+                    golfOrderList.setVisibility(View.GONE);
+                } else {
+                    hide(R.id.emptyview);
+                    golfOrderList.setVisibility(View.VISIBLE);
+                }
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }*/
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.see_detail://查看详情
+                int pos = (int) view.getTag();
+                MyRow row = data.get(pos);
+                Bundle b = new Bundle();
+                b.putString("processid", row.getString("processid"));
+                b.putBoolean("fromApplly",false);
+                openIntent(ApplyDetailActivity.class, R.string.apply_detail, b);
+                break;
+        }
+    }
+
+}

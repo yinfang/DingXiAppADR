@@ -1,0 +1,254 @@
+package com.clubank.device;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.GridView;
+
+import com.clubank.View.AlertDialog;
+import com.clubank.View.ApproveDialog;
+import com.clubank.View.ListViewInScrollView;
+import com.clubank.device.op.ProcessCancel;
+import com.clubank.device.op.ProcessDoc;
+import com.clubank.device.op.ProcessResult;
+import com.clubank.device.op.ProcessView;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.C;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+
+/**
+ * 活动申请详情
+ */
+public class ApplyDetailActivity extends CamareAndCropActivity implements AdapterView.OnItemClickListener {
+    private MyData picData, approvesData;//图片资料 审批人
+    private ApplyDetailPicAdapter picAdapter;
+    private ApprovesDetailAdapter approveAdapter;
+    private MyRow row;
+    private String processid, remark = "";//活动id
+    private int approveType = 0, from = 0;// 1 同意 2打回修改  3否决
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_apply_detail);
+        initView();
+    }
+
+    private void initView() {
+        Bundle b = getIntent().getExtras();
+        processid = b.getString("processid", "");
+        from = b.getInt("from");
+        if (from == 1) {//活动申请记录列表
+            show(R.id.apply_btn_ll);
+        } else if (from == 2) {//审批列表
+            show(R.id.approve_btn_ll);
+        } else {//审批记录列表
+            hide(R.id.approve_btn_ll);
+            hide(R.id.apply_btn_ll);
+        }
+        picData = new MyData();
+        approvesData = new MyData();
+        GridView gridView = findViewById(R.id.pics_gridView);
+        picAdapter = new ApplyDetailPicAdapter(this, picData);
+        gridView.setAdapter(picAdapter);
+        gridView.setOnItemClickListener(this);
+
+        ListViewInScrollView list = findViewById(R.id.approves_list);
+        approveAdapter = new ApprovesDetailAdapter(this, approvesData);
+        list.setAdapter(approveAdapter);
+        refreshData();
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, ProcessView.class).run(processid);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, final Result result) {
+        super.onPostExecute(op, result);
+        if (op == ProcessView.class) {
+            if (result.code == BC.SUCCESS) {
+                row = (MyRow) result.obj;
+                setDetails();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == ProcessResult.class) {
+            if (result.code == BC.SUCCESS) {
+                MyRow rr = ((MyData) row.get("Process")).get(0);
+                Bundle b = new Bundle();
+                if (approveType == 2) {
+                    rr.put("approve_result", getString(R.string.approve_modify));
+                } else if (approveType == 1) {
+                    rr.put("approve_result", getString(R.string.approve_sure));
+                } else {
+                    rr.put("approve_result", getString(R.string.disapprove));
+                }
+                rr.put("approve_advice", remark);
+                b.putSerializable("row", rr);
+                openIntent(ApproveFinishActivity.class, R.string.approve_finish, b);
+                finish();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == ProcessCancel.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(ApplyDetailActivity.this, result.msg);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, 1500);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+    private void setDetails() {
+        MyRow details = ((MyData) row.get("Process")).get(0);
+        MyData pics = (MyData) row.get("Docs");
+        MyData steps = (MyData) row.get("Step");
+
+        setEText(R.id.active_title, details.getString("ProcessName"));
+        setEText(R.id.start_time, details.getString("StartTime").substring(0, 16));
+        setEText(R.id.end_time, details.getString("EndTime").substring(0, 16));
+        setEText(R.id.active_place, details.getString("Address"));
+        setEText(R.id.active_detail, new String(Base64.decode(details.getString("ProcessDetail"), Base64.NO_WRAP)));
+        if (pics.size() == 0) {
+            hide(R.id.pics_ll);
+        } else {
+            for (MyRow r : pics) {
+                picAdapter.add(r);
+            }
+            picAdapter.notifyDataSetChanged();
+        }
+        if (steps.size() == 0) {
+            hide(R.id.approve_sort_ll);
+        } else {
+            for (MyRow rr : steps) {
+                approveAdapter.add(rr);
+            }
+            approveAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.cancel_apply://取消申请
+                showAlert(0);
+                break;
+            case R.id.modify_apply://修改申请
+                showAlert(1);
+                break;
+            case R.id.approve_modify://打回修改
+                approveType = 2;
+                showApproveAlert();
+                break;
+            case R.id.disapprove://否决
+                approveType = 3;
+                showApproveAlert();
+                break;
+            case R.id.approve_sure://同意
+                approveType = 1;
+                showApproveAlert();
+                break;
+        }
+    }
+
+    public void showApproveAlert() {// 1 同意 2打回修改  3否决
+        final ApproveDialog ad = new ApproveDialog(this);
+        if (approveType == 2) {
+            ad.setTitle(getString(R.string.approve_modify));
+        } else if (approveType == 1) {
+            ad.setTitle(getString(R.string.approve_sure));
+        } else {
+            ad.setTitle(getString(R.string.disapprove));
+        }
+        ad.setNegativeButton("取消", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ad.dismiss();
+            }
+        });
+        ad.setPositiveButton("确认", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                remark = ad.getMsg();
+                if (!TextUtils.isEmpty(remark)) {
+                    remark = android.util.Base64.encodeToString(remark.getBytes(), android.util.Base64.NO_WRAP);
+                }
+                new MyAsyncTask(ApplyDetailActivity.this, ProcessResult.class).run(processid, approveType, remark);
+                ad.dismiss();
+            }
+        });
+        ad.show();
+    }
+
+    public void showAlert(final int type) {//0 取消申请  1修改申请
+        final AlertDialog ad = new AlertDialog(this);
+        if (type == 0) {
+            String tips = getString(R.string.apply_cancel_tip) + "\n" + getString(R.string.apply_cancel_tip1);
+            ad.setTitleAndMsg(getString(R.string.cancel_apply), tips);
+        } else if (type == 1) {
+            String tips = getString(R.string.apply_modify_tip) + "\n" + getString(R.string.apply_modify_tip1);
+            ad.setTitleAndMsg(getString(R.string.modify_apply), tips);
+        }
+
+        ad.setNegativeButton("取消", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ad.dismiss();
+            }
+        });
+        ad.setPositiveButton("确认", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (type == 0) {
+                    new MyAsyncTask(ApplyDetailActivity.this, ProcessCancel.class).run(processid);
+                } else if (type == 1) {
+                    Bundle b = new Bundle();
+                    b.putBoolean("modify", true);
+                    b.putString("processid", processid);
+                    openIntent(ActiveApplyActivity.class, R.string.active_apply, b);
+                    ad.dismiss();
+                    finish();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void doUploadImage(String tmpfile, Bitmap small) {
+        super.doUploadImage(tmpfile, small);
+        new MyAsyncTask(this, ProcessDoc.class).run("");
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        final Intent in = new Intent(this, ImageLargeActivity.class);
+        Bundle b = new Bundle();
+        b.putSerializable("data", picData);
+        in.putExtras(b);
+        in.putExtra("pos", i);
+        startActivity(in);
+    }
+}
+
+
+

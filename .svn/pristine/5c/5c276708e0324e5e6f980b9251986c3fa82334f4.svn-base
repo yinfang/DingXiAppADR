@@ -1,0 +1,104 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+
+import com.clubank.device.op.GetLoginCheckCode;
+import com.clubank.device.op.UserLogin;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.domain.User;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.ToastUtile;
+import com.clubank.util.UI;
+
+/**
+ * 登录
+ */
+public class LoginActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        String username = "test04";
+        String password = "123";
+        setEText(R.id.member_phone, username);
+        setEText(R.id.member_num, password);
+    }
+
+
+    @Override
+    public void doWork(View view) {
+        super.doWork(view);
+        switch (view.getId()) {
+            case R.id.btn_login:
+                if (TextUtils.isEmpty(getEText(R.id.member_phone))) {
+                    UI.showToast(this, "请输入登录账号");
+                    return;
+                }
+                if (TextUtils.isEmpty(getEText(R.id.member_num))) {
+                    UI.showToast(this, "请输入密码或验证码");
+                    return;
+                }
+                new MyAsyncTask(this, UserLogin.class).run(getEText(R.id.member_phone), getEText(R.id.member_num));
+                break;
+            case R.id.btn_verify:
+                if (TextUtils.isEmpty(getEText(R.id.member_phone))) {
+                    UI.showToast(this, "请输入登录账号");
+                    return;
+                }
+                new MyAsyncTask(this, GetLoginCheckCode.class).run(getEText(R.id.member_phone));
+                break;
+            case R.id.call:
+                call("18888888888");
+                break;
+        }
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == UserLogin.class) {
+            if (result.code == BC.SUCCESS) {
+                String data = result.obj.toString();
+                User user = User.getIn();
+                user.setToken(data);
+                openIntent(MainActivity.class, R.string.app_name);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == GetLoginCheckCode.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                UI.showToast(this, result.msg);
+            } else {
+                ToastUtile.showText(this, result.msg);
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishApp();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finishApp();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void finishApp() {
+        app.finishAllActivites();
+    }
+}

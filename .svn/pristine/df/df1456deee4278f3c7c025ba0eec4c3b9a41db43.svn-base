@@ -1,0 +1,47 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+
+/**
+ * 审批完成
+ */
+public class ApproveFinishActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_approve_finish);
+        Bundle b = getIntent().getExtras();
+        MyRow ro = U.getRow(b, "row");
+        if (null != ro) {
+            setDetails(ro);
+        }
+    }
+
+    private void setDetails(MyRow row) {
+        MyRow details = ((MyData) row.get("Process")).get(0);
+        setEText(R.id.active_title, details.getString("ProcessName"));
+        setEText(R.id.start_time, details.getString("StartTime").substring(0, 15));
+        setEText(R.id.active_place, details.getString("Address"));
+        setEText(R.id.apply_result, details.getString("approve_result"));
+        setEText(R.id.apply_advice, details.getString("approve_advice"));
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.finish://返回主页
+                openIntent(MainActivity.class, R.string.app_name);
+                finish();
+                break;
+        }
+    }
+}
+
+
+

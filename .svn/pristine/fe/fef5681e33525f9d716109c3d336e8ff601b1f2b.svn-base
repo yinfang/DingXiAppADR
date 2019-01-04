@@ -1,0 +1,59 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+	package
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:1-20:12
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:6:22-73
+uses-permission#android.permission.VIBRATE
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:7:22-63
+application
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:8:5-18:19
+	android:largeHeap
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:8:18-42
+activity#com.yalantis.ucrop.UCropActivity
+ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:15:9-17:52
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:17:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml:16:13-60
+uses-sdk
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\common\src\main\AndroidManifest.xml

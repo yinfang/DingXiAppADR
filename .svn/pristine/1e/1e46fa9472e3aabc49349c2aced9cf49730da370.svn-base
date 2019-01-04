@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/title_blue</item>
+        <item name="colorAccent">@color/title_blue</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="CustomDialog" parent="android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_normal</item>
+    </style>
+
+    <style name="ButtonStyleConor">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_conor</item>
+    </style>
+
+    <style name="ButtonStyleConorWhite">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/title_blue</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_conor_white</item>
+    </style>
+
+    <style name="ButtonStyleStrokeBlue">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/title_blue</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_stroke_blue</item>
+    </style>
+
+    <style name="ButtonStylyBgTransparent">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_stroke_transparent</item>
+    </style>
+
+    <style name="ButtonStylePink">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:onClick">doWork</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/btn_bg_pink</item>
+    </style>
+    <!-- 文字默认style 大字-->
+    <style name="BigTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 文字默认style 通用大小-->
+    <style name="TextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 文字默认style 小字-->
+    <style name="SmallTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 灰色文字默认style -->
+    <style name="TextGrayStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/main_gray</item>
+    </style>
+
+    <!-- 灰色文字默认style 小字-->
+    <style name="SmallGrayTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/main_gray</item>
+    </style>
+
+    <!-- 小深灰字体 -->
+    <style name="SmallDarkGrayTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/gray_50</item>
+        <item name="android:lineSpacingExtra">0.5dp</item>
+    </style>
+    <!-- 可点击的LinearLayout-->
+    <style name="LinearLayoutClickStyle">
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">doWork</item>
+    </style>
+
+    <style name="SmallArrowRightStyle">
+        <item name="android:layout_width">@dimen/small_right_arrow</item>
+        <item name="android:layout_height">@dimen/small_right_arrow</item>
+        <item name="android:src">@mipmap/arrow_right</item>
+    </style>
+</resources>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">定西体育</string>
+    <string name="settings">设置</string>
+    <!--扫描-->
+    <string name="scan">扫码</string>
+    <string name="nfc_read">NFC读卡</string>
+    <string name="picc_read">PICC读卡</string>
+    <string name="lbl_countDown">倒计时</string>
+    <string name="lbl_second">秒</string>
+    <string name="lbl_noNFC">此设备不支持（NFC）功能！</string>
+
+    <!--picc-->
+    <string name="action_settings">Version</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="code">获得签名</string>
+    <string name="writecard">write m1</string>
+    <string name="m1_card">M1 Card</string>
+    <string name="picc_block_data">Block data:</string>
+    <string name="picc_write_clear">Clear</string>
+    <string name="picc_def_apdu">APDU</string>
+    <string name="picc_send_apdu">Send APDU</string>
+    <string name="picc_digits">0123456789ABCDEFabcdef</string>
+    <string name="picc_block_no_none">Please enter the Block number</string>
+    <string name="picc_block_no_illegal">The range of value of Block number is 0～63</string>
+    <string name="picc_authen_fail">Authen fail</string>
+    <string name="picc_operate_fail">Operate fail</string>
+    <string name="picc_block_data_none">Please enter the data</string>
+    <string name="picc_active_fail">Active fail</string>
+    <string name="picc_apdu_hint">HEX, 16 byte (e.g. 0A4F…)</string>
+    <string name="picc_apdu_key">Authen KEY HEX, 6 byte (e.g. 0A4F…)</string>
+    <string name="picc_authen_before">Please click on the Authen button</string>
+</resources>

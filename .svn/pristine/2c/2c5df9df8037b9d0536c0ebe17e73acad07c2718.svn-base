@@ -1,0 +1,70 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.clubank.dingxi.R;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+
+/**
+ * 活动申请记录列表
+ */
+public class ApplyRecordListActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+    private ApplyRecordListAdapter adapter;
+    private MyData data;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_apply_record_list);
+        data = new MyData();
+        ListView list = findViewById(R.id.list);
+        adapter = new ApplyRecordListAdapter(this, data);
+        addEmptyView(list);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(this);
+        refreshData();
+    }
+
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+//        new MyAsyncTask(this, GetBanquetOrder.class).run(criteria.PageIndex, criteria.PageSize);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            MyRow row = (MyRow) parent.getItemAtPosition(position);
+            Bundle b = new Bundle();
+            b.putString("processid",row.getString("processid"));
+            openIntent(ApplyDetailActivity.class, R.string.apply_detail, b);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+      /*  if (op == GetBanquetOrder.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                listAdapter.addAll(data);
+                if (listAdapter.getCount() < 1) {
+                    show(R.id.emptyview);
+                    golfOrderList.setVisibility(View.GONE);
+                } else {
+                    hide(R.id.emptyview);
+                    golfOrderList.setVisibility(View.VISIBLE);
+                }
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }*/
+    }
+
+}

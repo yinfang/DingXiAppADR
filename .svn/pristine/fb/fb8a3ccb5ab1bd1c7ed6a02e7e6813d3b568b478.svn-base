@@ -1,0 +1,77 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.clubank.device.op.LessonClassList;
+import com.clubank.device.op.ProcessList;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.Criteria;
+import com.clubank.domain.MainTabEntity;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+/**
+ * 上课记录
+ */
+public class ClassOrderRecordListActivity extends BaseActivity {
+    private ListView list;
+    private ClassOrderRecordListAdapter adapter;
+    private MyData data;
+    private String orderid;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_apply_record_list);
+
+        Bundle b = getIntent().getExtras();
+        if (null != b) {
+            orderid = b.getString("OrderID");
+        }
+        data = new MyData();
+        list = findViewById(R.id.list);
+        adapter = new ClassOrderRecordListAdapter(this, data);
+        addEmptyView(list);
+        list.setAdapter(adapter);
+        refreshData();
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, LessonClassList.class).run(orderid);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == LessonClassList.class) {
+            if (result.code == BC.SUCCESS) {
+                data = (MyData) result.obj;
+                if (null != data && data.size() > 0) {
+                    for (MyRow ro : data) {
+                        adapter.add(ro);
+                    }
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+                show(R.id.emptyview);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,33 @@
+package com.clubank.device.op;
+
+import android.content.Context;
+
+import com.clubank.domain.C;
+import com.clubank.domain.Result;
+import com.clubank.domain.User;
+import com.clubank.util.MyRow;
+
+/**
+ * 提交活动申请
+ * processid	否	string	活动ID 新增或者则不传或者传0
+ * processname	是	string	活动名称
+ * starttime	是	string	活动开始时间
+ * endtime	是	string	活动结束时间
+ * address	是	string	地址
+ * processdetail	是	string	活动描述
+ * docs	否	string	活动附件序号
+ * token	是	string	Token
+ */
+public class ProcessSave extends OPBase {
+    public ProcessSave(Context context) {
+        super(context);
+    }
+
+    @Override
+    public Result execute(Object... args) throws Exception {
+        MyRow row = (MyRow) args[0];
+        row.put("token", User.getIn().getToken());
+        Result result = operateHttp(C.HTTP_POST, "ProcessSave", row);
+        return result;
+    }
+}

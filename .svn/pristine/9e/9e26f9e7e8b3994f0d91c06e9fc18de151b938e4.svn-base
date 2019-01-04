@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg_01"
+    android:orientation="vertical"
+    tools:context=".own.LoginActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:elevation="5dp"
+        android:visibility="gone">
+
+        <include layout="@layout/header" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:onClick="doWork"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="138dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/login_logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:gravity="center_vertical"
+            android:minHeight="53dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20.5dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/mobile" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray_f5" />
+
+            <EditText
+                android:id="@+id/edt_name"
+                style="@style/TextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/edit_bac"
+                android:digits="@string/phone_digits"
+                android:hint="@string/hint_login_name"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:singleLine="true" />
+
+            <ImageView
+                android:id="@+id/iv_delete_mobile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:onClick="doWork"
+                android:src="@mipmap/edt_delete"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:background="@color/gray_f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:gravity="center_vertical"
+            android:minHeight="53dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:layout_width="20.5dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/password" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray_f5" />
+
+
+            <EditText
+                android:id="@+id/edt_verfycode"
+                style="@style/TextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/edit_bac"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:digits="@string/phone_digits"
+                android:maxLength="6"
+                android:inputType="number"
+                android:hint="@string/hint_verify_code"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tv_get_verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/verify_bg"
+                android:gravity="center"
+                android:minHeight="28dp"
+                android:onClick="doWork"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/get_verify_code"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:background="@color/gray_f5" />
+
+        <TextView
+            android:id="@+id/tv_lost_pass"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="doWork"
+            android:text="@string/lost_pass"
+            android:textColor="@color/toolbar_bg"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_normal"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginTop="49dp"
+            android:text="@string/login"
+            android:textColor="#fffefe"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5" />
+    </LinearLayout>
+
+
+</LinearLayout>

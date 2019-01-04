@@ -1,0 +1,137 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.clubank.device.op.LessonClassList;
+import com.clubank.device.op.LessonSign;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.C;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+import com.clubank.util.UI;
+
+/**
+ * 扫码核销成功
+ */
+public class TicketScanSuccessActivity extends BaseActivity implements TextWatcher {
+    private String type, temp;
+    private MyRow ro;
+    private EditText commentMsg;
+    private int limit = 200, cursor = 0, before_length;//限制数  用来记录输入字符的时候光标的位置   用来标注输入某一内容之前的编辑框中的内容的长度
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ticketscan_success);
+        Bundle b = getIntent().getExtras();
+        ro = U.getRow(b, "row");
+        if (null != ro) {
+            setDetails(ro);
+        }
+        commentMsg = findViewById(R.id.class_comment);
+        commentMsg.addTextChangedListener(this);
+    }
+
+    private void setDetails(MyRow row) {
+        type = row.getString("type");
+        if (type.equals("ticket")) { //tyep：ticket 票务核销 lesson 签课核销
+            show(R.id.verify_ll);
+            setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+            setEText(R.id.succ_desc, getString(R.string.verify_success));
+            setEText(R.id.succ_desc1, getString(R.string.succ_desc));
+            setEText(R.id.title, row.getString("票面名称"));
+            setEText(R.id.num, row.getString("数量"));
+            setEText(R.id.time, row.getString("赛事时间"));
+            setEText(R.id.place, row.getString("赛事地点"));
+        } else if (type.equals("lesson")) {
+            show(R.id.class_ll);
+            ((Button) findViewById(R.id.finish)).setText(getString(R.string.sure_sign));
+            setImage(R.id.succ_img, R.mipmap.class_succ);
+            setEText(R.id.succ_desc, getString(R.string.sign_info));
+            hide(R.id.succ_desc1);
+            setEText(R.id.class_name, row.getString("课程名称"));
+            setEText(R.id.class_time, row.getString("上课时间"));
+            setEText(R.id.class_member, row.getString("学员"));
+        }
+  /*    show(R.id.xiao_ll);
+            setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+            setEText(R.id.succ_desc, getString(R.string.xiao_success) + "!");
+            setEText(R.id.succ_desc1, getString(R.string.succ_desc1));
+            setEText(R.id.title1, row.getString(""));
+            setEText(R.id.time1, row.getString("").substring(0, 16));
+            setEText(R.id.place1, row.getString(""));
+            setEText(R.id.seat, row.getString(""));*/
+
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.finish://返回主页
+                if (type.equals("ticket")) {
+                    openIntent(TicketScanActivity.class, R.string.ticket_verify);
+                    finish();
+                } else if (type.equals("lesson")) {
+                    new MyAsyncTask(this, LessonSign.class).run(ro.getString("aid"), android.util.Base64.encodeToString(getEText(R.id.class_comment).getBytes(), android.util.Base64.NO_WRAP));
+                } else {
+                    openIntent(MainActivity.class, R.string.app_name);
+                    finish();
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == LessonSign.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(this, result.msg);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        openIntent(TicketScanActivity.class, R.string.ticket_verify);
+                        finish();
+                    }
+                }, 1500);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        before_length = charSequence.length();
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        cursor = i;
+//        text_num.setText(String.format(getString(R.string.class_mark_hint1), charSequence.length() + "/200"));
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        int after_length = editable.length();
+        if (after_length > limit) {
+            UI.showToast(this, "您最多只能输入200字");
+            commentMsg.setText(editable.toString().substring(0, 200));
+            // 设置光标最后显示的位置为超出部分的开始位置，优化体验
+            commentMsg.setSelection(200);
+        }
+    }
+}
+
+
+

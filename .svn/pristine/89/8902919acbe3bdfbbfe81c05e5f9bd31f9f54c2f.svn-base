@@ -1,0 +1,214 @@
+<resources>
+    <string name="app_name">定西体育</string>
+    <string name="settings">设置</string>
+    <string name="back">返回</string>
+    <!--首页-->
+    <string name="active_apply">活动申请</string>
+    <string name="member_input">会员录入</string>
+    <string name="ticket_verify">扫码核销</string>
+    <string name="business_statistic">营业统计</string>
+    <string name="class_mng">排课管理</string>
+    <string name="class_order">课程订单</string>
+    <string name="booking_mng">新建预约</string>
+    <string name="booking_record">预约记录</string>
+    <string name="active_approve">活动审批</string>
+    <string name="approve_record">审批记录</string>
+    <string name="member_info">个人信息</string>
+    <string name="modify_pass">修改密码</string>
+    <string name="login_out">注销登录</string>
+    <string name="info_detail">咨询详情</string>
+
+    <!--会员录入-->
+    <string name="member_name">会员姓名:</string>
+    <string name="member_name_hint">请输入会员姓名</string>
+    <string name="member_sex">会员性别:</string>
+    <string name="member_no">身份证号:</string>
+    <string name="member_no_hint">请输入会员身份证号</string>
+    <string name="member_phone">手机号码:</string>
+    <string name="member_phone_hint">请输入会员手机号码</string>
+    <string name="member_phone1">紧急电话:</string>
+    <string name="member_phone1_hint">请输入会员的紧急联系电话</string>
+    <string name="car_number">车牌号码:</string>
+    <string name="car_number_hint">会员可享受优惠停车</string>
+    <string name="finish">完成</string>
+    <string name="input_success">录入成功</string>
+    <string name="input_success_tip">扫码关注定西体育馆公众号，享受便捷服务！</string>
+
+    <!--活动申请-->
+    <string name="active_record">申请记录</string>
+    <string name="active_title">活动名称</string>
+    <string name="active_title1">活动名称:</string>
+    <string name="active_title_hint">请输入活动名称</string>
+    <string name="start_time">开始时间</string>
+    <string name="start_time1">开始时间:</string>
+    <string name="start_time_hint">请选择活动的开始时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="end_time1">结束时间:</string>
+    <string name="end_time_hint">请选择活动的结束时间</string>
+    <string name="active_place">活动地点</string>
+    <string name="active_place1">活动地点:</string>
+    <string name="active_place_hint">请选择活动举办的地点</string>
+    <string name="active_detail">活动详情</string>
+    <string name="active_detail_hint">字数0/500</string>
+    <string name="active_detail_hintt">字数%s</string>
+    <string name="active_detail_hint1">请输入活动的内容(500字以内)</string>
+    <string name="apply_data">申请资料</string>
+    <string name="apply_data_hint">请上传相关资料</string>
+    <string name="see_large_img">点击图片查看大图</string>
+    <string name="approve_sort">审批流程</string>
+    <string name="your_advice">您的意见</string>
+    <string name="add">添加</string>
+    <string name="submit">提交</string>
+    <string name="modify_apply">修改申请</string>
+    <string name="cancel_apply">取消申请</string>
+    <string name="approve_modify">打回修改</string>
+    <string name="disapprove">否决</string>
+    <string name="approve_sure">同意</string>
+    <string name="apply_result">审批结果:</string>
+    <string name="apply_advice">审批意见:</string>
+    <string name="approve_people">申请人:</string>
+    <string name="apply_modify_tip">确定提交申请？</string>
+    <string name="apply_modify_tip1">修改后需要重新提交审批</string>
+    <string name="apply_cancel_tip">确定取消申请？</string>
+    <string name="apply_cancel_tip1">该操作不可逆</string>
+
+    <string-array name="takePic">
+        <item>拍照</item>
+        <item>从相册中选择</item>
+    </string-array>
+
+    <string name="slash">/</string>
+    <string name="n1">1</string>
+    <string name="n8">8</string>
+
+    <string-array name="approves">
+        <item>运营负责人</item>
+        <item>馆长</item>
+        <item>体育局领导</item>
+    </string-array>
+
+    <!--申请记录-->
+    <string name="apply_people">申请人:</string>
+    <string name="apply_time">申请时间:</string>
+    <string name="apply_time1">提交时间:</string>
+    <string name="apply_time2">活动时间:</string>
+    <string name="apply_place">申请场馆:</string>
+    <string name="apply_detail">申请详情</string>
+    <string name="see_detail">查看详情</string>
+
+    <!--申请成功-->
+    <string name="apply_success">申请成功</string>
+    <string name="apply_tip1">您可随时在活动申请-申请记录中</string>
+    <string name="apply_tip2">查看申请审批进度</string>
+    <string name="apply_tip3">请打开软件系统通知权限</string>
+    <string name="apply_tip4">以免错过审批结果通知</string>
+    <string name="see_apply_record">查看申请记录</string>
+    <string name="approve_finish">审批完成</string>
+
+    <!--申请成功-->
+    <string name="verify_success">验证成功</string>
+    <string name="xiao_success">核销成功</string>
+    <string name="class_success">签课成功</string>
+    <string name="succ_desc">请向顾客兑换对应档次的纸质票</string>
+    <string name="succ_desc1">请引导顾客前往对应区域就坐</string>
+    <string name="verify_name">票面名称:</string>
+    <string name="verify_num">票数量:</string>
+    <string name="verify_time">赛事时间:</string>
+    <string name="verify_place">赛事地点:</string>
+    <string name="verify_seat">座位号码:</string>
+    <string name="class_name">课程名称:</string>
+    <string name="class_time">上课时间:</string>
+    <string name="class_member">学员姓名:</string>
+    <string name="class_comment">学习评价</string>
+    <string name="un_require">选填</string>
+
+    <!--扫描-->
+    <string name="scan">扫码</string>
+    <string name="nfc_read">NFC读卡</string>
+    <string name="picc_read">PICC读卡</string>
+
+    <!--营业统计-->
+    <string name="tody_total">今日营业额(元)</string>
+    <string name="tody_incomes">今日客流量  %s  人</string>
+    <string name="tody_bookings">今日定场数  %s  单</string>
+    <string name="all_arenas">全部场馆</string>
+    <string name="income_analyze">营收分析</string>
+    <string name="tody_book_sort">今日订场排行</string>
+    <string name="time_book__sort">分时定场数 - %s</string>
+    <string name="booking_num">总计：%s  单</string>
+    <string name="yuan">¥</string>
+
+    <!--预约记录-->
+    <string name="student">学　员:</string>
+    <string name="total">已上/总计:</string>
+    <string name="booking_time">预约时间:</string>
+    <string name="remark">备　注:</string>
+    <string name="cancel_class">取消约课</string>
+    <string name="sure_class">确认约课</string>
+    <string name="no_sure">未确认</string>
+    <string name="has_sure">已确认</string>
+    <string name="has_class">已签课</string>
+    <string name="has_cancel">已取消</string>
+
+    <!--课程订单-->
+    <string name="order_no">订单编号:</string>
+    <string name="student1">上课人:</string>
+    <string name="over_time">到期时间:</string>
+    <string name="order_time">下单时间:</string>
+    <string name="class_record">上课记录</string>
+
+    <!--上课记录-->
+    <string name="class_start">上课时间:</string>
+    <string name="teacher_comment">教练评价:</string>
+
+    <!--确认预约-->
+    <string name="choose_class">选择学员课程</string>
+    <string name="choose_class_hint">请选择选择学员课程</string>
+    <string name="choose_time">选择时间</string>
+    <string name="choose_time_hint">请选择上课时间</string>
+    <string name="student_class">学员课程</string>
+    <string name="student_class1">学员课程:</string>
+    <string name="class_time1">上课时间</string>
+    <string name="mark_info">备注信息</string>
+    <string name="mark_info1">备注信息:</string>
+    <string name="mark_info_hint">请输入备注信息</string>
+    <string name="class_mark_hint">字数0/200</string>
+    <string name="class_mark_hint1">字数%s</string>
+    <string name="sure_booking">确认预约</string>
+    <string name="booking_success">预约成功</string>
+    <string name="booking_success1">预约成功！</string>
+    <string name="total_class">已上/总上:</string>
+    <string name="set_pai_tip">是否将所选时间段设为未安排？</string>
+    <string name="set_pai_tip1">您的学员将不可预约这些时段</string>
+    <string name="set_yue_tip">是否将所选时间段设为可预约？</string>
+    <string name="set_yue_tip1">您的学员将可预约这些时段</string>
+    <string name="detail_title">预约详情</string>
+    <string name="detail_student">学　　员：</string>
+    <string name="detail_time">预约时间：</string>
+    <string name="detail_class">课　　程：</string>
+    <string name="detail_num">备　　时：</string>
+
+    <string name="lbl_second">秒</string>
+    <string name="lbl_noNFC">此设备不支持（NFC）功能！</string>
+
+    <!--picc-->
+    <string name="action_settings">Version</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="code">获得签名</string>
+    <string name="writecard">write m1</string>
+    <string name="m1_card">M1 Card</string>
+    <string name="picc_block_data">Block data:</string>
+    <string name="picc_write_clear">Clear</string>
+    <string name="picc_def_apdu">APDU</string>
+    <string name="picc_send_apdu">Send APDU</string>
+    <string name="picc_digits">0123456789ABCDEFabcdef</string>
+    <string name="picc_block_no_none">Please enter the Block number</string>
+    <string name="picc_block_no_illegal">The range of value of Block number is 0～63</string>
+    <string name="picc_authen_fail">Authen fail</string>
+    <string name="picc_operate_fail">Operate fail</string>
+    <string name="picc_block_data_none">Please enter the data</string>
+    <string name="picc_active_fail">Active fail</string>
+    <string name="picc_apdu_hint">HEX, 16 byte (e.g. 0A4F…)</string>
+    <string name="picc_apdu_key">Authen KEY HEX, 6 byte (e.g. 0A4F…)</string>
+    <string name="picc_authen_before">Please click on the Authen button</string>
+</resources>

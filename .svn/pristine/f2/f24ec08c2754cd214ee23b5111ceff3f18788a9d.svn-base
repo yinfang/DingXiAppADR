@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/pro_lay"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="horizontal"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/light_gray"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doWork">
+
+            <ImageView
+                android:id="@+id/ic_ba"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_iba" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doWork">
+
+            <ImageView
+                android:id="@+id/ic_re"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_re" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/front"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="doWork">
+
+            <ImageView
+                android:id="@+id/ic_fr"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_ifr" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

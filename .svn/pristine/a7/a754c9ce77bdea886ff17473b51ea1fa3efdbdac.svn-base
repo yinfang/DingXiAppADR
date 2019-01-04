@@ -1,0 +1,703 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-38:12
+MERGED from [com.android.support:multidex:1.0.3] D:\gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\4f31d6034e36a73ddc150ebcf0c427b1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:27.1.1] D:\gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\29aaffa923ac8b712fa3d780dd555c85\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\10ab938bb2ebeafa883e725caff0dfbe\AndroidManifest.xml:17:1-22:12
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:2:1-133:12
+MERGED from [cn.jiguang.sdk:jcore:1.2.3] D:\gradle\caches\transforms-1\files-1.1\jcore-1.2.3.aar\b999ef08764e18c5bf6d42a124d480fd\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:mediarouter-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\mediarouter-v7-27.1.1.aar\72c2ded0eb64eee38072eacd0433320c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\b86264677aff043beff10b0d3d068f00\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:gridlayout-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\gridlayout-v7-27.1.1.aar\3ff914bd5d56fd12d5f4dd70d503fc09\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\64c347ac0c09678296811f0344c3c1ec\AndroidManifest.xml:17:1-22:12
+MERGED from [me.zhanghai.android.materialratingbar:library:1.3.1] D:\gradle\caches\transforms-1\files-1.1\library-1.3.1.aar\abbcca2acb0c98a868ae47e173ed342a\AndroidManifest.xml:6:1-15:12
+MERGED from [com.necer.ncalendar:ncalendar:2.4.6] D:\gradle\caches\transforms-1\files-1.1\ncalendar-2.4.6.aar\f3526fa510e801dc5eccc3bec66b1a02\AndroidManifest.xml:2:1-17:12
+MERGED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:2:1-19:12
+MERGED from [com.github.yalantis:ucrop:2.2.2] D:\gradle\caches\transforms-1\files-1.1\ucrop-2.2.2.aar\d93b98854eb740299c7ef93e71b21dad\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\b3c07c652a7c6094eec95c45f5e358ed\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\104fb5f9cf0181c2c97da6c1a56d0d10\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.7.1] D:\gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\aa80eb4a745d7d2a84ce399644f972e8\AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-fragment:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5553342dd693d7e7e22a3e85a2c79f2b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\098e979d384ae62d3e8553041c2d192e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\95792c9db8d08974eee22e282ca9c437\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:palette-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\palette-v7-27.1.1.aar\f1a8960f05d333d30abce476dc95a5a6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] D:\gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\33233c783b177828b4866e7dc40dd284\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.chrisbanes:PhotoView:2.1.3] D:\gradle\caches\transforms-1\files-1.1\PhotoView-2.1.3.aar\32187c9bd8718b54504938004a1d32fb\AndroidManifest.xml:2:1-12:12
+MERGED from [com.android.support:support-core-utils:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\04f4a95bc164508898bea239100ea802\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\66b2fa7b393cd12278f16ac61f7a1ff2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\306a61b81867776d615005b16d4ff90a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:exifinterface:27.1.1] D:\gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\3d0e7c36441a9866f9162e30ba328459\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] D:\gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\0c6a40f5506a78b04ccbf670f91d5521\AndroidManifest.xml:2:1-11:12
+MERGED from [me.jessyan:progressmanager:1.5.0] D:\gradle\caches\transforms-1\files-1.1\progressmanager-1.5.0.aar\896fdb962978e27d13c73ecb98d577d0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2] D:\gradle\caches\transforms-1\files-1.1\FlycoTabLayout_Lib-2.1.2.aar\4201d57b635793a0e25812f321d1805e\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.5.0] D:\gradle\caches\transforms-1\files-1.1\LRecyclerView-1.5.0.aar\2b896065569081b5569b662e494f544d\AndroidManifest.xml:2:1-14:12
+MERGED from [com.google.android:flexbox:1.0.0] D:\gradle\caches\transforms-1\files-1.1\flexbox-1.0.0.aar\f9ed870ea8b8837363d64ac11cb9a28c\AndroidManifest.xml:17:1-27:12
+MERGED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:2:1-18:12
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] D:\gradle\caches\transforms-1\files-1.1\ultra-ptr-1.0.11.aar\092c89b0aeb14d6f6312ed5aa21f616b\AndroidManifest.xml:2:1-13:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\89a16df336da628532d200fd4ff3ec8b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] D:\gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ca1359e7ab240536eb81845126189d3e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] D:\gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\e4381c00c496f8dcd4eb0d251246430a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3295e385143e8bfcfcf21f6fb2d7abf2\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+	package
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:1-231:12
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:2:11-69
+permission#com.clubank.dingxi.permission.JPUSH_MESSAGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:6:5-8:47
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:11:5-13:47
+	android:protectionLevel
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:8:9-44
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:7:9-67
+uses-permission#com.clubank.dingxi.permission.JPUSH_MESSAGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:11:5-83
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:11:22-80
+uses-permission#android.permission.RECEIVE_USER_PRESENT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:12:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:17:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:17:5-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.INTERNET
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:13:5-67
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:18:5-67
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:18:5-67
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:13:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:14:5-75
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:20:5-75
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:20:5-75
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:14:22-72
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:15:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:21:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:21:5-81
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:15:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:16:5-80
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:22:5-80
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:16:22-77
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:17:5-84
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:25:5-84
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:25:5-84
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:17:22-81
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:18:5-79
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-79
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:26:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:26:5-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:18:22-76
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:19:5-73
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:23:5-73
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:23:5-73
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:19:22-70
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:20:5-76
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:12:5-76
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:12:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:27:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:27:5-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:20:22-73
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:23:5-78
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:30:5-78
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:30:5-78
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:23:22-75
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:24:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:31:5-81
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:31:5-81
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:24:22-78
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:25:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:32:5-76
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:32:5-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:25:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:26:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:33:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:33:5-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:26:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:27:5-89
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:34:5-89
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:34:5-89
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:27:22-86
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:28:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:35:5-79
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:35:5-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:28:22-76
+uses-permission#android.permission.GET_TASKS
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:29:5-68
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:29:22-65
+uses-permission#android.permission.CAMERA
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:30:5-65
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:30:22-62
+uses-permission#android.permission.FLASHLIGHT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:31:5-69
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:31:22-66
+uses-permission#android.permission.NFC
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:32:5-62
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:32:22-59
+uses-permission#android.permission.VIBRATE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:33:5-66
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:5-66
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:13:5-66
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:24:5-66
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:24:5-66
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:33:22-63
+uses-feature#android.hardware.nfc
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:35:5-37:35
+	android:required
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:37:9-32
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:36:9-44
+supports-screens
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:39:5-44:39
+	android:largeScreens
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:41:9-36
+	android:smallScreens
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:44:9-36
+	android:normalScreens
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:42:9-37
+	android:resizeable
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:43:9-34
+	android:anyDensity
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:40:9-34
+application
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:46:5-229:19
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:5-36:19
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:5-36:19
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:37:5-131:19
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:37:5-131:19
+MERGED from [cn.jiguang.sdk:jcore:1.2.3] D:\gradle\caches\transforms-1\files-1.1\jcore-1.2.3.aar\b999ef08764e18c5bf6d42a124d480fd\AndroidManifest.xml:11:5-12:19
+MERGED from [cn.jiguang.sdk:jcore:1.2.3] D:\gradle\caches\transforms-1\files-1.1\jcore-1.2.3.aar\b999ef08764e18c5bf6d42a124d480fd\AndroidManifest.xml:11:5-12:19
+MERGED from [com.necer.ncalendar:ncalendar:2.4.6] D:\gradle\caches\transforms-1\files-1.1\ncalendar-2.4.6.aar\f3526fa510e801dc5eccc3bec66b1a02\AndroidManifest.xml:11:5-15:19
+MERGED from [com.necer.ncalendar:ncalendar:2.4.6] D:\gradle\caches\transforms-1\files-1.1\ncalendar-2.4.6.aar\f3526fa510e801dc5eccc3bec66b1a02\AndroidManifest.xml:11:5-15:19
+MERGED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:11:5-17:19
+MERGED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:11:5-17:19
+MERGED from [com.github.bumptech.glide:glide:4.7.1] D:\gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\aa80eb4a745d7d2a84ce399644f972e8\AndroidManifest.xml:11:5-20
+MERGED from [com.github.bumptech.glide:glide:4.7.1] D:\gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\aa80eb4a745d7d2a84ce399644f972e8\AndroidManifest.xml:11:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] D:\gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\0c6a40f5506a78b04ccbf670f91d5521\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] D:\gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\0c6a40f5506a78b04ccbf670f91d5521\AndroidManifest.xml:9:5-20
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.5.0] D:\gradle\caches\transforms-1\files-1.1\LRecyclerView-1.5.0.aar\2b896065569081b5569b662e494f544d\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.5.0] D:\gradle\caches\transforms-1\files-1.1\LRecyclerView-1.5.0.aar\2b896065569081b5569b662e494f544d\AndroidManifest.xml:11:5-12:19
+MERGED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:11:5-16:19
+MERGED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:11:5-16:19
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] D:\gradle\caches\transforms-1\files-1.1\ultra-ptr-1.0.11.aar\092c89b0aeb14d6f6312ed5aa21f616b\AndroidManifest.xml:11:5-20
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] D:\gradle\caches\transforms-1\files-1.1\ultra-ptr-1.0.11.aar\092c89b0aeb14d6f6312ed5aa21f616b\AndroidManifest.xml:11:5-20
+	android:supportsRtl
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:52:9-35
+	android:label
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:50:9-41
+	xmlns:tools
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:46:18-64
+	android:roundIcon
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:51:9-54
+	android:largeHeap
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:18-42
+	android:icon
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:49:9-43
+	android:allowBackup
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:48:9-35
+	android:theme
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:53:9-40
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:47:9-59
+activity#com.clubank.device.MainActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:55:9-61:20
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:55:19-65
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:56:13-60:29
+action#android.intent.action.MAIN
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:57:17-69
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:57:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:59:17-77
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:59:27-74
+activity#com.easier.code.util.CaptureActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:62:9-64:52
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:64:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:63:13-64
+activity#com.clubank.picc.PICCMainActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:65:9-67:52
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:67:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:66:13-61
+activity#com.clubank.picc.MyPICCActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:68:9-70:52
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:70:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:69:13-59
+activity#com.clubank.nfc.BaseActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:71:9-73:52
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:73:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:72:13-56
+activity#com.clubank.nfc.NFCMainActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:74:9-98:20
+	android:screenOrientation
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:77:13-49
+	android:launchMode
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:76:13-48
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:75:13-59
+intent-filter#android.nfc.action.NDEF_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:78:13-84:29
+action#android.nfc.action.NDEF_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:79:17-77
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:79:25-74
+data
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:80:17-83:45
+	android:host
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:81:21-37
+	android:scheme
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:83:21-42
+	android:pathPrefix
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:82:21-42
+intent-filter#android.nfc.action.TECH_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:85:13-87:29
+action#android.nfc.action.TECH_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:86:17-77
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:86:25-74
+meta-data#android.nfc.action.TECH_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:89:13-91:59
+	android:resource
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:91:17-56
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:90:17-66
+intent-filter#android.intent.category.DEFAULT+android.nfc.action.TAG_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:93:13-97:29
+action#android.nfc.action.TAG_DISCOVERED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:94:17-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:94:25-73
+category#android.intent.category.DEFAULT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:96:17-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:96:27-73
+service#cn.jpush.android.service.PushService
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:102:9-112:19
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:60:9-71:19
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:60:9-71:19
+	android:process
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:64:13-40
+	android:enabled
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:104:13-35
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:105:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:103:13-64
+intent-filter#cn.jpush.android.intent.PUSH_TIME+cn.jpush.android.intent.PushService+cn.jpush.android.intent.REGISTER+cn.jpush.android.intent.REPORT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:106:13-111:29
+action#cn.jpush.android.intent.REGISTER
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:107:17-75
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:107:25-72
+action#cn.jpush.android.intent.REPORT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:108:17-73
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:108:25-70
+action#cn.jpush.android.intent.PushService
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:109:17-78
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:109:25-75
+action#cn.jpush.android.intent.PUSH_TIME
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:110:17-76
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:110:25-73
+provider#cn.jpush.android.service.DataProvider
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:114:9-118:47
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:113:9-116:40
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:113:9-116:40
+	android:authorities
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:116:13-66
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:117:13-36
+		REJECTED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:116:13-37
+	tools:replace
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:118:13-45
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:115:13-65
+provider#cn.jpush.android.service.DownloadProvider
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:121:9-125:47
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:118:9-121:39
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:118:9-121:39
+	android:authorities
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:123:13-70
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:124:13-36
+		REJECTED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:121:13-36
+	tools:replace
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:125:13-45
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:122:13-69
+receiver#cn.jpush.android.service.PushReceiver
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:128:9-146:20
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:87:9-106:20
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:87:9-106:20
+	android:enabled
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:130:13-35
+	android:exported
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:90:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:129:13-65
+intent-filter#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY+com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:131:13-134:29
+	android:priority
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:131:28-51
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:132:17-94
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:132:25-91
+category#com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:133:17-63
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:133:27-60
+intent-filter#android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:135:13-138:29
+action#android.intent.action.USER_PRESENT
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:136:17-77
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:136:25-74
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:137:17-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:137:25-76
+intent-filter#android.intent.action.PACKAGE_ADDED+android.intent.action.PACKAGE_REMOVED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:140:13-145:29
+action#android.intent.action.PACKAGE_ADDED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:141:17-78
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:141:25-75
+action#android.intent.action.PACKAGE_REMOVED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:142:17-80
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:142:25-77
+activity#cn.jpush.android.ui.PushActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:149:9-160:20
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:46:9-57:20
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:46:9-57:20
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:152:13-37
+	android:configChanges
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:151:13-63
+	android:theme
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:153:13-60
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:150:13-60
+intent-filter#android.intent.category.DEFAULT+cn.jpush.android.ui.PushActivity+com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:154:13-159:29
+action#cn.jpush.android.ui.PushActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:155:17-75
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:155:25-72
+activity#cn.jpush.android.ui.PopWinActivity
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:162:9-171:20
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:40:9-43:52
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:40:9-43:52
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:165:13-37
+	android:configChanges
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:164:13-63
+	android:theme
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:166:13-49
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:163:13-62
+intent-filter#android.intent.category.DEFAULT+com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:167:13-170:29
+service#cn.jpush.android.service.DownloadService
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:174:9-177:40
+	android:enabled
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:176:13-35
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:177:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:175:13-68
+receiver#cn.jpush.android.service.AlarmReceiver
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:180:9-75
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:109:9-111:40
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:109:9-111:40
+	android:exported
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:111:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:180:19-72
+receiver#com.clubank.domain.MyJPushMessageReceiver
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:185:9-193:20
+	android:enabled
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:187:13-35
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:188:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:186:13-69
+intent-filter#cn.jpush.android.intent.RECEIVE_MESSAGE+com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:189:13-192:29
+action#cn.jpush.android.intent.RECEIVE_MESSAGE
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:190:17-82
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:190:25-79
+receiver#com.clubank.domain.MyJPushReceiver2
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:196:9-213:20
+	android:enabled
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:198:13-35
+	android:exported
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:199:13-37
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:197:13-63
+intent-filter#cn.jpush.android.intent.CONNECTION+cn.jpush.android.intent.MESSAGE_RECEIVED+cn.jpush.android.intent.NOTIFICATION_OPENED+cn.jpush.android.intent.NOTIFICATION_RECEIVED+cn.jpush.android.intent.REGISTRATION+com.clubank.dingxi
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:200:13-212:29
+action#cn.jpush.android.intent.REGISTRATION
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:202:17-79
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:202:25-76
+action#cn.jpush.android.intent.MESSAGE_RECEIVED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:204:17-83
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:204:25-80
+action#cn.jpush.android.intent.NOTIFICATION_RECEIVED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:206:17-88
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:206:25-85
+action#cn.jpush.android.intent.NOTIFICATION_OPENED
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:208:17-86
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:208:25-83
+action#cn.jpush.android.intent.CONNECTION
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:210:17-77
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:210:25-74
+meta-data#JPUSH_CHANNEL
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:220:9-223:45
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:124:9-126:48
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:124:9-126:48
+	tools:replace
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:223:13-42
+	android:value
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:222:13-46
+		REJECTED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:126:13-45
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:221:13-41
+meta-data#JPUSH_APPKEY
+ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:225:9-228:45
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:127:9-129:47
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:127:9-129:47
+	tools:replace
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:228:13-42
+	android:value
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:227:13-39
+		REJECTED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:129:13-44
+	android:name
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml:226:13-40
+uses-sdk
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:multidex:1.0.3] D:\gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\4f31d6034e36a73ddc150ebcf0c427b1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] D:\gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\4f31d6034e36a73ddc150ebcf0c427b1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:27.1.1] D:\gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\29aaffa923ac8b712fa3d780dd555c85\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] D:\gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\29aaffa923ac8b712fa3d780dd555c85\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\10ab938bb2ebeafa883e725caff0dfbe\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\10ab938bb2ebeafa883e725caff0dfbe\AndroidManifest.xml:20:5-44
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jcore:1.2.3] D:\gradle\caches\transforms-1\files-1.1\jcore-1.2.3.aar\b999ef08764e18c5bf6d42a124d480fd\AndroidManifest.xml:7:5-9:41
+MERGED from [cn.jiguang.sdk:jcore:1.2.3] D:\gradle\caches\transforms-1\files-1.1\jcore-1.2.3.aar\b999ef08764e18c5bf6d42a124d480fd\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:mediarouter-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\mediarouter-v7-27.1.1.aar\72c2ded0eb64eee38072eacd0433320c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:mediarouter-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\mediarouter-v7-27.1.1.aar\72c2ded0eb64eee38072eacd0433320c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\b86264677aff043beff10b0d3d068f00\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\b86264677aff043beff10b0d3d068f00\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:gridlayout-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\gridlayout-v7-27.1.1.aar\3ff914bd5d56fd12d5f4dd70d503fc09\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:gridlayout-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\gridlayout-v7-27.1.1.aar\3ff914bd5d56fd12d5f4dd70d503fc09\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\64c347ac0c09678296811f0344c3c1ec\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\64c347ac0c09678296811f0344c3c1ec\AndroidManifest.xml:20:5-44
+MERGED from [me.zhanghai.android.materialratingbar:library:1.3.1] D:\gradle\caches\transforms-1\files-1.1\library-1.3.1.aar\abbcca2acb0c98a868ae47e173ed342a\AndroidManifest.xml:11:5-13:41
+MERGED from [me.zhanghai.android.materialratingbar:library:1.3.1] D:\gradle\caches\transforms-1\files-1.1\library-1.3.1.aar\abbcca2acb0c98a868ae47e173ed342a\AndroidManifest.xml:11:5-13:41
+MERGED from [com.necer.ncalendar:ncalendar:2.4.6] D:\gradle\caches\transforms-1\files-1.1\ncalendar-2.4.6.aar\f3526fa510e801dc5eccc3bec66b1a02\AndroidManifest.xml:7:5-9:41
+MERGED from [com.necer.ncalendar:ncalendar:2.4.6] D:\gradle\caches\transforms-1\files-1.1\ncalendar-2.4.6.aar\f3526fa510e801dc5eccc3bec66b1a02\AndroidManifest.xml:7:5-9:41
+MERGED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:7:5-9:41
+MERGED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yalantis:ucrop:2.2.2] D:\gradle\caches\transforms-1\files-1.1\ucrop-2.2.2.aar\d93b98854eb740299c7ef93e71b21dad\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.yalantis:ucrop:2.2.2] D:\gradle\caches\transforms-1\files-1.1\ucrop-2.2.2.aar\d93b98854eb740299c7ef93e71b21dad\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\b3c07c652a7c6094eec95c45f5e358ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\b3c07c652a7c6094eec95c45f5e358ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\104fb5f9cf0181c2c97da6c1a56d0d10\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\104fb5f9cf0181c2c97da6c1a56d0d10\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.7.1] D:\gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\aa80eb4a745d7d2a84ce399644f972e8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:glide:4.7.1] D:\gradle\caches\transforms-1\files-1.1\glide-4.7.1.aar\aa80eb4a745d7d2a84ce399644f972e8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5553342dd693d7e7e22a3e85a2c79f2b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5553342dd693d7e7e22a3e85a2c79f2b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\098e979d384ae62d3e8553041c2d192e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\098e979d384ae62d3e8553041c2d192e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\95792c9db8d08974eee22e282ca9c437\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\95792c9db8d08974eee22e282ca9c437\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:palette-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\palette-v7-27.1.1.aar\f1a8960f05d333d30abce476dc95a5a6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:palette-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\palette-v7-27.1.1.aar\f1a8960f05d333d30abce476dc95a5a6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] D:\gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\33233c783b177828b4866e7dc40dd284\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] D:\gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\33233c783b177828b4866e7dc40dd284\AndroidManifest.xml:20:5-44
+MERGED from [com.github.chrisbanes:PhotoView:2.1.3] D:\gradle\caches\transforms-1\files-1.1\PhotoView-2.1.3.aar\32187c9bd8718b54504938004a1d32fb\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.chrisbanes:PhotoView:2.1.3] D:\gradle\caches\transforms-1\files-1.1\PhotoView-2.1.3.aar\32187c9bd8718b54504938004a1d32fb\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:support-core-utils:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\04f4a95bc164508898bea239100ea802\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\04f4a95bc164508898bea239100ea802\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\66b2fa7b393cd12278f16ac61f7a1ff2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] D:\gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\66b2fa7b393cd12278f16ac61f7a1ff2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\306a61b81867776d615005b16d4ff90a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] D:\gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\306a61b81867776d615005b16d4ff90a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] D:\gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\3d0e7c36441a9866f9162e30ba328459\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] D:\gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\3d0e7c36441a9866f9162e30ba328459\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] D:\gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\0c6a40f5506a78b04ccbf670f91d5521\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] D:\gradle\caches\transforms-1\files-1.1\gifdecoder-4.7.1.aar\0c6a40f5506a78b04ccbf670f91d5521\AndroidManifest.xml:5:5-7:41
+MERGED from [me.jessyan:progressmanager:1.5.0] D:\gradle\caches\transforms-1\files-1.1\progressmanager-1.5.0.aar\896fdb962978e27d13c73ecb98d577d0\AndroidManifest.xml:7:5-9:41
+MERGED from [me.jessyan:progressmanager:1.5.0] D:\gradle\caches\transforms-1\files-1.1\progressmanager-1.5.0.aar\896fdb962978e27d13c73ecb98d577d0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2] D:\gradle\caches\transforms-1\files-1.1\FlycoTabLayout_Lib-2.1.2.aar\4201d57b635793a0e25812f321d1805e\AndroidManifest.xml:8:5-10:41
+MERGED from [com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2] D:\gradle\caches\transforms-1\files-1.1\FlycoTabLayout_Lib-2.1.2.aar\4201d57b635793a0e25812f321d1805e\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.5.0] D:\gradle\caches\transforms-1\files-1.1\LRecyclerView-1.5.0.aar\2b896065569081b5569b662e494f544d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.jdsjlzx:LRecyclerView:1.5.0] D:\gradle\caches\transforms-1\files-1.1\LRecyclerView-1.5.0.aar\2b896065569081b5569b662e494f544d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android:flexbox:1.0.0] D:\gradle\caches\transforms-1\files-1.1\flexbox-1.0.0.aar\f9ed870ea8b8837363d64ac11cb9a28c\AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] D:\gradle\caches\transforms-1\files-1.1\flexbox-1.0.0.aar\f9ed870ea8b8837363d64ac11cb9a28c\AndroidManifest.xml:23:5-25:41
+MERGED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:7:5-9:41
+MERGED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:7:5-9:41
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] D:\gradle\caches\transforms-1\files-1.1\ultra-ptr-1.0.11.aar\092c89b0aeb14d6f6312ed5aa21f616b\AndroidManifest.xml:7:5-9:41
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] D:\gradle\caches\transforms-1\files-1.1\ultra-ptr-1.0.11.aar\092c89b0aeb14d6f6312ed5aa21f616b\AndroidManifest.xml:7:5-9:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\89a16df336da628532d200fd4ff3ec8b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\89a16df336da628532d200fd4ff3ec8b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] D:\gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ca1359e7ab240536eb81845126189d3e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] D:\gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\ca1359e7ab240536eb81845126189d3e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] D:\gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\e4381c00c496f8dcd4eb0d251246430a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] D:\gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\e4381c00c496f8dcd4eb0d251246430a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3295e385143e8bfcfcf21f6fb2d7abf2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] D:\gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3295e385143e8bfcfcf21f6fb2d7abf2\AndroidManifest.xml:20:5-44
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		ADDED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+		INJECTED from D:\StudioProject\DingXiApp\app\src\main\AndroidManifest.xml
+provider#android.support.v4.content.FileProvider
+ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:18:9-26:20
+	android:grantUriPermissions
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:22:13-47
+	android:authorities
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:13-66
+	android:exported
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:19:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:23:13-25:54
+	android:resource
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:17-51
+	android:name
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:24:17-67
+activity#com.yalantis.ucrop.UCropActivity
+ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:33:9-35:52
+	android:screenOrientation
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:35:13-49
+	android:name
+		ADDED from [:common] D:\StudioProject\DingXiApp\common\build\intermediates\manifests\full\debug\AndroidManifest.xml:34:13-60
+permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:11:5-13:47
+uses-permission#${JPUSH_PKGNAME}.permission.JPUSH_MESSAGE
+MERGED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:16:5-81
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:19:5-68
+	android:name
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:19:22-65
+service#cn.jpush.android.service.DaemonService
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:75:9-84:19
+	android:enabled
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:77:13-35
+	android:exported
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:78:13-36
+	android:name
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:76:13-66
+intent-filter#${JPUSH_PKGNAME}+cn.jpush.android.intent.DaemonService
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:79:13-83:29
+intent-filter#cn.jpush.android.intent.DaemonService+com.clubank.dingxi
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:79:13-83:29
+action#cn.jpush.android.intent.DaemonService
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:80:17-80
+	android:name
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:80:25-77
+category#${JPUSH_PKGNAME}
+ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:82:17-61
+	android:name
+		ADDED from [cn.jiguang.sdk:jpush:3.1.5] D:\gradle\caches\transforms-1\files-1.1\jpush-3.1.5.aar\786d3350e54b8ba1d7d56a2eed84e986\AndroidManifest.xml:82:27-58
+activity#pub.devrel.easypermissions.AppSettingsDialogHolderActivity
+ADDED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:12:9-16:66
+	android:label
+		ADDED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:15:13-29
+	android:exported
+		ADDED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:14:13-37
+	android:theme
+		ADDED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:16:13-63
+	android:name
+		ADDED from [pub.devrel:easypermissions:1.2.0] D:\gradle\caches\transforms-1\files-1.1\easypermissions-1.2.0.aar\bae230ac04e5142b3c8148a442c56254\AndroidManifest.xml:13:13-86
+service#com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService
+ADDED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:12:9-118
+	android:name
+		ADDED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:12:18-115
+service#com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService
+ADDED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:13:9-15:49
+	android:process
+		ADDED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:15:13-46
+	android:name
+		ADDED from [com.liulishuo.filedownloader:library:1.7.4] D:\gradle\caches\transforms-1\files-1.1\library-1.7.4.aar\2dbebb2e41ae6b21a6c2637224c85434\AndroidManifest.xml:14:13-108

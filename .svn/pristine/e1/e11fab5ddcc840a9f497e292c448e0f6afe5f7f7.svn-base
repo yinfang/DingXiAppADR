@@ -1,0 +1,52 @@
+package com.clubank.device;
+
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+/**
+ * 预约记录Adapter
+ */
+public class BookingRecordListAdapter extends BaseAdapter {
+    public BookingRecordListAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.item_booking_record_list, data);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        super.display(position, v, row);
+        setEText(R.id.tv_title, row.getString("LessonName"));
+        setEText(R.id.tv_status, row.getString("StatusStr"));
+       /* int status = Integer.parseInt(row.getString("Status"));
+        TextView statusTv = v.findViewById(R.id.tv_status);
+        if (status == 0 || status == 1) {//状态 1.未确认 2.已确认 3.已取消 4.已拒绝
+            setEText(R.id.tv_status, row.getString("StatusStr"));
+            statusTv.setTextColor(a.getResources().getColor(R.color.status01));
+        } else if (status == 2) {
+            setEText(R.id.tv_status, row.getString("StatusStr"));
+            statusTv.setTextColor(a.getResources().getColor(R.color.status2));
+        } else if (status == 3) {
+            setEText(R.id.tv_status, row.getString("StatusStr"));
+            statusTv.setTextColor(a.getResources().getColor(R.color.status3));
+        } else if (status == 4) {
+            setEText(R.id.tv_status, row.getString("StatusStr"));
+            statusTv.setTextColor(a.getResources().getColor(R.color.status_else));
+        }*/
+        setEText(R.id.tv_student, row.getString("Name"));
+        setEText(R.id.tv_has_class, row.getString("Leid") + "节/");
+        setEText(R.id.tv_total, row.getString("Coid") + "节");
+        setEText(R.id.tv_booking_time, row.getString("AppointTime").replace("T", " ").substring(0, 16));
+        setEText(R.id.tv_remark, row.getString("Remark"));
+        Button cancel_class = v.findViewById(R.id.cancel_class);
+        Button sure_class = v.findViewById(R.id.sure_class);
+        sure_class.setTag(position);
+        cancel_class.setTag(position);
+    }
+
+}

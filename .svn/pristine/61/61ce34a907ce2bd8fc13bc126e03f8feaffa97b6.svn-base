@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f00"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是左边侧边栏" />
+
+
+        <LinearLayout
+            android:layout_marginTop="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/mytext_btn_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:clickable="true"
+                android:onClick="doWork"
+                android:text="UserName" />
+
+
+            <TextView
+                android:id="@+id/mytext_btn_mobile_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textSize="20sp"
+                android:onClick="doWork"
+                android:text="Mobile No" />
+
+
+            <TextView
+                android:id="@+id/mytext_btn_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textSize="20sp"
+                android:onClick="doWork"
+                android:text="Sex" />
+
+
+            <TextView
+                android:id="@+id/mytext_btn_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textSize="20sp"
+                android:onClick="doWork"
+                android:text="ID" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

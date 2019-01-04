@@ -1,0 +1,45 @@
+package com.clubank.knightclub.own;
+
+import android.view.View;
+
+import com.clubank.device.BaseActivity;
+import com.clubank.device.BaseAdapter;
+import com.clubank.knightclub.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+public class BanquetOrderListAdapter extends BaseAdapter {
+    public BanquetOrderListAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.item_banquet_order, data);
+    }
+
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        super.display(position, v, row);
+        setEText(R.id.tv_order_no, row.getString("OrderNo"));
+//        Status：状态(0待确认、1预约成功、9已取消、3已完成)
+        int status = Integer.parseInt(row.getString("Status"));
+        if (status == 0) {
+            setEText(R.id.tv_order_status, "待确认");
+        }else if (status == 1){
+            setEText(R.id.tv_order_status, "预约成功");
+        }else if (status == 9){
+            setEText(R.id.tv_order_status, "已取消");
+        }else if (status == 3){
+            setEText(R.id.tv_order_status, "已完成");
+        }else {
+            setEText(R.id.tv_order_status, "未知状态");
+        }
+        setEText(R.id.tv_contact_name, row.getString("Name"));
+        setEText(R.id.tv_contact_mobile, row.getString("MobileNo"));
+
+        String orderDate = row.getString("OrderDate").replace("T", " ").substring(0, 10);
+        String start = row.getString("OrderStartTime").replace("T", " ").substring(11, 16);
+        String end = row.getString("OrderEndTime").replace("T", " ").substring(11, 16);
+
+        setEText(R.id.tv_booking_date, orderDate + " " + start + getString(R.string.time_line) + end);
+        setEText(R.id.tv_booking_num, row.getString("PersonNum") + "人");
+
+    }
+
+}

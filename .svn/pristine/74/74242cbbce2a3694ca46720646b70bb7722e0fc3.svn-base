@@ -1,0 +1,19 @@
+package com.clubank.utils;
+
+import android.graphics.Color;
+
+/**
+ * Created by long on 18-1-18.
+ */
+
+public class PieColors {
+
+    public static final int[] LIBERTY_COLORS = {
+            Color.rgb(97, 127, 201),
+            Color.rgb(87, 170, 74),
+            Color.rgb(246, 193, 61),
+            Color.rgb(101, 205, 197),
+            Color.rgb(255, 127, 0)
+    };
+
+}

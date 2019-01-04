@@ -1,0 +1,201 @@
+package com.clubank.device;
+
+import android.annotation.TargetApi;
+import android.content.pm.PackageManager;
+import android.hardware.fingerprint.FingerprintManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.WindowManager;
+
+import com.clubank.device.op.KeepRegistrationId;
+import com.clubank.device.op.MemberCenterOverviewData;
+import com.clubank.device.op.MemberGetCarInfo;
+import com.clubank.device.op.MemberGetInfo;
+import com.clubank.device.op.MemberGroupLogin;
+import com.clubank.device.op.MemberLogin;
+import com.clubank.domain.BC;
+import com.clubank.domain.BRT;
+import com.clubank.domain.MIK;
+import com.clubank.domain.Result;
+import com.clubank.domain.SPKey;
+import com.clubank.domain.User;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+import com.clubank.whcarapp.R;
+import com.google.gson.Gson;
+
+import cn.jpush.android.api.JPushInterface;
+
+/**
+ * Created by duxy on 2017/7/17.
+ */
+public class SplshActivity extends BaseActivity {
+    private String verName;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager
+                .LayoutParams.FLAG_FULLSCREEN);
+        try {
+            verName = this.getPackageManager().
+                    getPackageInfo(this.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        saveSetting(SPKey.CheckVersion, true);
+        saveSetting("Version", verName);
+        biz.setServerType(BC.release ? 2 : 1);//1测试2正式
+
+        if (!TextUtils.isEmpty(JPushInterface.getUdid(this))) {
+            new MyAsyncTask(this, KeepRegistrationId.class, false).run(JPushInterface
+                    .getRegistrationID(this), JPushInterface.getUdid(this), "");
+        }
+        CountDownTimer countDownTimer = new CountDownTimer(2000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                saveSetting("cardno", "");
+                saveSetting("member", "");
+                String username = settings.getString("logusername", "");
+                String password = settings.getString("password", "");
+                String groupUsername = settings.getString("groupLogUsername", "");
+                String groupPassword = settings.getString("groupPassword", "");
+                CheckHasFingerPrintApi();
+                if (U.isNetworkConnected(SplshActivity.this)) {
+                    if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+                        BC.setLoginType("1");
+                        new MyAsyncTask(SplshActivity.this, MemberLogin.class, false).run(username,
+                                password);
+                    } else if (!TextUtils.isEmpty(groupUsername) && !TextUtils.isEmpty(groupPassword)) {
+                        BC.setLoginType("2");
+                        new MyAsyncTask(SplshActivity.this, MemberGroupLogin.class, false).run(groupUsername,
+                                groupPassword);
+                    } else {
+                        openIntent(MainActivity.class, "");
+                        finish();
+                    }
+                } else {
+                    openIntent(MainActivity.class, "");
+                    finish();
+                }
+            }
+        };
+        countDownTimer.start();
+    }
+
+    /**
+     * 检测设备是否支持指纹支付(是否包含指纹支付api)
+     */
+    @TargetApi(Build.VERSION_CODES.M)
+    private void CheckHasFingerPrintApi() {
+
+        if (settings.contains("hasFingerPrintApi")) { // 检查是否存在该值
+            return;
+        }
+        try {
+            Class fm = Class.forName("android.hardware.fingerprint.FingerprintManager");
+            if (null != fm) {
+                FingerprintManager manager = (FingerprintManager) getSystemService
+                        (FINGERPRINT_SERVICE);//设备是否支持指纹
+                if (manager.isHardwareDetected()) {
+                    saveSetting("hasFingerPrintApi", true);
+                } else {
+                    saveSetting("hasFingerPrintApi", false);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            saveSetting("hasFingerPrintApi", false);
+        }
+
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == MemberLogin.class || op == MemberGroupLogin.class) {
+            if (result.code == BRT.SUCCESS) {
+                MyRow row = (MyRow) result.obj;
+                User user = User.getInstance();
+                user.setToken(row.getString(MIK.getTokenKey()));
+                user.setMobile(settings.getString("username", ""));
+                if (op == MemberGroupLogin.class) {
+                    user.setPassword(settings.getString("groupPassword", ""));
+                    BC.setLoginPassWord(settings.getString("groupPassword", ""));
+                    user.setCustomerId(row.getString(MIK.getgIdKey()));
+                } else {
+                    user.setPassword(settings.getString("password", ""));
+                    BC.setLoginPassWord(settings.getString("password", ""));
+                    user.setCustomerId(row.getString(MIK.getcIdKey()));
+                }
+                BC.setCustomerId(user.getCustomerId());
+                BC.setToken(user.getToken());
+                BC.setLoginMobile(settings.getString("username", ""));
+                if (BC.getLoginType().equals("1")) {
+                    new MyAsyncTask(this, MemberGetInfo.class, false).run(user.getCustomerId());//获取用户信息
+                } else {
+                    openIntent(GroupMianActivity.class, getString(R.string.company_login));
+                    finish();
+                }
+            } else {
+                openIntent(MainActivity.class, "");
+                finish();
+            }
+        } else if (op == MemberGetInfo.class) {
+            if (result.code == BRT.SUCCESS) {
+                MyRow row = (MyRow) result.obj;
+                MyRow customerInfo = (MyRow) row.get("customerInfo");
+                User.getInstance().setMemberInfo(customerInfo);
+                User.getInstance().setDefaultAddress(new Gson().toJson(row.get
+                        ("defaultDeliveryAddress")));
+                if (!TextUtils.isEmpty(BC.getCustomerId())) {
+                    new MyAsyncTask(this, MemberCenterOverviewData.class, false).run(BC
+                            .getCustomerId());
+                }
+                new MyAsyncTask(this, MemberGetCarInfo.class, false).run(BC.getCustomerId());
+            } else {
+                openIntent(MainActivity.class, "");
+                finish();
+            }
+        } else if (op == MemberCenterOverviewData.class) {
+            MyRow row = (MyRow) result.obj;
+            User user = User.getInstance();
+            user.setMemberCenterOverviewData(row);
+        } else if (op == MemberGetCarInfo.class) {
+            if (result.code == BRT.SUCCESS) {
+                MyData data = (MyData) result.obj;
+                if (data != null && data.size() > 0) {
+                    User user = User.getInstance();
+                    for (int i = 0; i < data.size(); i++) {
+                        MyRow r = data.get(i);
+                        if (r.getBoolean("isDefault")) {
+                            user.setDefaultPlateNumber(r.getString("carNo"));
+                            user.setdefaultPlateId(r.getString("carId"));
+                            break;
+                        }
+                    }
+                }
+                openIntent(MainActivity.class, "");
+                finish();
+            } else {
+                openIntent(MainActivity.class, "");
+                finish();
+            }
+        }
+    }
+
+
+    public void doWork(View v) {
+    }
+}

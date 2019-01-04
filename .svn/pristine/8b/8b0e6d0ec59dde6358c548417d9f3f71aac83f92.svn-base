@@ -1,0 +1,92 @@
+package com.clubank.knightclub.own;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.clubank.device.BaseActivity;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Criteria;
+import com.clubank.domain.Result;
+import com.clubank.knightclub.R;
+import com.clubank.knightclub.op.GetBanquetOrder;
+import com.clubank.knightclub.op.GetGolfOrderList;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+
+import java.util.ArrayList;
+
+/**
+ * 宴会厅订单列表
+ */
+public class BanquetOrderListActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+    private CommonTabLayout commonTabLayout;
+    ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+    ListView golfOrderList;
+    BanquetOrderListAdapter listAdapter;
+    MyData data;
+    Criteria criteria;
+    private int status = 1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_golf_order);
+        hide(R.id.tablayout);
+        criteria = new Criteria();
+        golfOrderList = findViewById(R.id.order_listView);
+        data = new MyData();
+        listAdapter = new BanquetOrderListAdapter(this, data);
+        initList(golfOrderList, listAdapter, criteria, GetGolfOrderList.class);
+        addEmptyView(golfOrderList);
+        golfOrderList.setOnItemClickListener(this);
+//        handler.sendEmptyMessageDelayed(50,3000);
+        refreshData();
+    }
+
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, GetBanquetOrder.class).run(criteria.PageIndex, criteria.PageSize);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.order_listView) {
+            MyRow row = listAdapter.getItem(position);
+            Bundle b = new Bundle();
+            b.putString("OrderNo", row.getString("OrderNo"));
+            openIntent(BanquetOrderDetailActivity.class, R.string.dinning_order_detail, b);
+        }
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == GetBanquetOrder.class) {
+            if (result.code == BRT.SUCCESS.getCode()) {
+                MyData data = (MyData) result.obj;
+                listAdapter.addAll(data);
+                if (listAdapter.getCount() < 1){
+                    show(R.id.emptyview);
+                    golfOrderList.setVisibility(View.GONE);
+                }else {
+                    hide(R.id.emptyview);
+                    golfOrderList.setVisibility(View.VISIBLE);
+                }
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+
+}

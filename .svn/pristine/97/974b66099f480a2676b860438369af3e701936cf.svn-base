@@ -1,0 +1,24 @@
+package com.clubank.device;
+
+import android.view.View;
+
+import com.clubank.club10X.manager.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+public class ContractStatisticsAdapter extends BaseAdapter {
+    public ContractStatisticsAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.contract_statistics_item, data);
+    }
+
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        super.display(position, v, row);
+        setEText(R.id.tv_contract_no, row.getString("BargaindNo"));
+        setEText(R.id.tv_name, row.getString("MemberName"));
+        setEText(R.id.sale_name, row.getString("CoachName"));
+        setEText(R.id.tv_money,twoDiStr(row,"TotalAmount"));
+        setEText(R.id.left_count, row.getString("SurplusNum"));
+        setEText(R.id.left_money, twoDiStr(row,"SurplusAmount"));
+    }
+}

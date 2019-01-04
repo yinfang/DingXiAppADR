@@ -1,0 +1,29 @@
+package com.clubank.device;
+
+import com.clubank.device.MyApplication;
+import com.clubank.domain.BC;
+import com.clubank.domain.C;
+import com.clubank.util.SPUtil;
+
+import cn.jpush.android.api.JPushInterface;
+
+public class DingXiApplicaion extends MyApplication {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        C.baseUrl = BC.BASE_URL_INTERNET;
+        C.baseImageUrl = BC.BASE_URL_IMAGE;
+        C.apiDataKey = "data";
+        C.apiMsg = "msg";
+        C.apiState = "status";
+       /* int vcode = U.getVCode(this);
+        String vname = U.getVName(this);
+        SPUtil.saveSetting("vcode",vcode);
+        SPUtil.saveSetting("vname",vname);*/
+        JPushInterface.init(this);
+        JPushInterface.setDebugMode(false);
+        JPushInterface.stopPush(this);
+        SPUtil.saveSetting("jpushId", JPushInterface.getRegistrationID(this));
+    }
+}

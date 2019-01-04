@@ -1,0 +1,119 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+
+import com.clubank.device.op.LessonOrderByCoach;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.Criteria;
+import com.clubank.domain.MainTabEntity;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+/**
+ * 课程订单
+ */
+public class ClassOrderListActivity extends BaseActivity implements OnTabSelectListener {
+    private CommonTabLayout commonTabLayout;
+    private ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+    private ListView list;
+    private ClassOrderListAdapter adapter;
+    private MyData data;
+    private Criteria criteria;
+    private int status = 0;//1上课中 2.已毕业 3.已过期
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_class_order_list);
+        tabs.add(new MainTabEntity("全部", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("上课中", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("已毕业", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("已失效", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        commonTabLayout = findViewById(R.id.tablayout);
+        commonTabLayout.setTabData(tabs);
+        commonTabLayout.setOnTabSelectListener(this);
+        data = new MyData();
+        criteria = new Criteria();
+        list = findViewById(R.id.list);
+        adapter = new ClassOrderListAdapter(this, data);
+        addEmptyView(list);
+        list.setAdapter(adapter);
+//        initList(list, adapter, criteria, LessonOrderByCoach.class);
+        refreshData();
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, LessonOrderByCoach.class).run(status);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        super.onPostExecute(op, result);
+        if (op == LessonOrderByCoach.class) {
+            if (result.code == BC.SUCCESS) {
+                data = (MyData) result.obj;
+                adapter.clear();
+                if (null != data && data.size() > 0) {
+                    for (MyRow ro : data) {
+                        adapter.add(ro);
+                    }
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+                show(R.id.emptyview);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+    }
+
+    public void doWork(View view) {
+        int pos = (int) view.getTag();
+        MyRow row = data.get(pos);
+        switch (view.getId()) {
+            case R.id.class_record://上课记录
+                Bundle b = new Bundle();
+                b.putString("OrderID", row.getString("OrderID"));
+                openIntent(ClassOrderRecordListActivity.class, R.string.class_record, b);
+                break;
+        }
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        switch (position) {
+            case 0:
+                status = 0;
+                break;
+            case 1:
+                status = 1;
+                break;
+            case 2:
+                status = 2;
+                break;
+            case 3:
+                status = 3;
+                break;
+        }
+//        criteria = new Criteria();
+        refreshData();
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
+    }
+}

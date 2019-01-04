@@ -1,0 +1,163 @@
+package com.clubank.View;
+
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.UI;
+
+import java.io.UnsupportedEncodingException;
+
+/**
+ * 活动审批dialog
+ *
+ * @author zyf
+ */
+
+@SuppressLint("ResourceAsColor")
+public class ApproveDialog extends Dialog {
+    private Context context;
+    public TextView titleView, cancel, sure;
+    public EditText messageView;
+    private ImageView editImg;
+    public View v;
+    private String temp;
+    private int limit = 200, cursor = 0, before_length;//限制数  用来记录输入字符的时候光标的位置   用来标注输入某一内容之前的编辑框中的内容的长度
+
+    public ApproveDialog(Context context) {
+        super(context);
+        this.context = context;
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.approve_dialog);
+        setCanceledOnTouchOutside(false);
+        titleView = findViewById(R.id.title);
+        messageView = findViewById(R.id.message);
+        editImg = findViewById(R.id.edit_img);
+        v = findViewById(R.id.line);
+        cancel = findViewById(R.id.btn_cancel);
+        sure = findViewById(R.id.btn_ok);
+        setMsgTextChange();
+    }
+
+    public ApproveDialog(Context context, int theme) {
+        super(context, theme);
+        this.context = context;
+    }
+
+    public void setTitle(String title) {
+        titleView.setText(title);
+    }
+
+    public void setOKDialog() {//只有确定按钮
+        cancel.setVisibility(View.GONE);
+        v.setVisibility(View.GONE);
+    }
+
+    public void setMsgTextChange() {
+        messageView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                before_length = charSequence.length();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int after_length = editable.length();
+                if (after_length > 0) {
+                    editImg.setBackground(context.getResources().getDrawable(R.mipmap.edit_blue));
+                } else {
+                    editImg.setBackground(context.getResources().getDrawable(R.mipmap.edit_gray));
+                }
+                if (after_length > limit) {
+                    UI.showToast(context, "您最多只能输入200字");
+                    messageView.setText(editable.toString().substring(0, 200));
+                    // 设置光标最后显示的位置为超出部分的开始位置，优化体验
+                    messageView.setSelection(200);
+                }
+            }
+        });
+    }
+
+    /**
+     * 区分 一个中文占3个长度，英文字符占1个长度
+     */
+    private String getLimitSubstring(String inputStr) {
+        int orignLen = inputStr.length();
+        int resultLen = 0;
+        String temp = null;
+        for (int i = 0; i < orignLen; i++) {
+            temp = inputStr.substring(i, i + 1);
+            try {// 3 bytes to indicate chinese word,1 byte to indicate english
+                // word ,in utf-8 encode
+                if (temp.getBytes("utf-8").length == 3) {
+                    resultLen += 2;
+                } else {
+                    resultLen++;
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            if (resultLen > 30) {
+                return inputStr.substring(0, i);
+            }
+        }
+        return inputStr;
+    }
+
+    public String getMsg() {
+        return messageView.getText().toString();
+    }
+
+    /**
+     * 确定按钮
+     *
+     * @param text        文字
+     * @param buttonStyle button点击样式
+     * @param color       文字颜色
+     * @param listener
+     */
+    public void setPositiveButton(String text, int buttonStyle, int color,
+                                  final View.OnClickListener listener) {
+        sure.setText(text);
+        if (buttonStyle > 0) {
+            sure.setBackgroundResource(buttonStyle);
+        }
+        if (color > 0) {
+            sure.setTextColor(context.getResources().getColor(color));
+        }
+        sure.setOnClickListener(listener);
+    }
+
+    /**
+     * 取消按钮
+     *
+     * @param text
+     * @param listener
+     */
+    public void setNegativeButton(String text, int buttonStyle, int color,
+                                  final View.OnClickListener listener) {
+        cancel.setText(text);
+        if (buttonStyle > 0) {
+            cancel.setBackgroundResource(buttonStyle);
+        }
+        if (color > 0) {
+            cancel.setTextColor(context.getResources().getColor(color));
+        }
+        cancel.setOnClickListener(listener);
+    }
+
+}

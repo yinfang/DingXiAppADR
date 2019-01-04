@@ -1,0 +1,77 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
+    api 'com.android.support:support-annotations:27.1.1'
+    api 'com.android.support:support-vector-drawable:27.1.1'
+    api 'com.android.support:design:27.1.1'
+    api 'com.android.support:gridlayout-v7:27.1.1'
+    api 'com.android.support:mediarouter-v7:27.1.1'
+    api 'com.android.support:cardview-v7:27.1.1'
+    api 'com.android.support:palette-v7:27.1.1'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+    api 'com.android.support:exifinterface:27.1.1'
+    api 'com.android.support:support-annotations:27.1.1'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.okhttp3:okhttp:3.9.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    api 'com.android.support:multidex:1.0.3'
+    api 'com.google.zxing:core:3.3.3'
+    api 'me.jessyan:progressmanager:1.5.0'
+    api 'me.zhanghai.android.materialratingbar:library:1.3.1'
+    api 'joda-time:joda-time:2.10'
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    api 'com.github.jdsjlzx:LRecyclerView:1.5.0'
+    api 'com.necer.ncalendar:ncalendar:2.4.6'
+    api 'com.github.bumptech.glide:glide:4.7.1'
+//    api 'me.leolin:ShortcutBadger:1.1.21@aar'
+//    api 'com.squareup.retrofit2:retrofit:2.4.0'
+//    api 'com.google.android.exoplayer:exoplayer:2.8.1'
+//    api 'com.google.android.exoplayer:exoplayer-core:2.8.1'
+//    api 'com.google.android.exoplayer:exoplayer-dash:2.8.1'
+//    api 'com.google.android.exoplayer:exoplayer-ui:2.8.1'
+    api 'com.google.android:flexbox:1.0.0'
+//    api 'com.github.mcxtzhang:AnimShopButton:V1.2.0'
+    api 'com.github.chrisbanes:PhotoView:2.1.3'
+    api 'com.liulishuo.filedownloader:library:1.7.4'
+//    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+//    api 'io.reactivex.rxjava2:rxjava:2.1.14'
+    //    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    api 'in.srain.cube:ultra-ptr:1.0.11'
+    api 'pub.devrel:easypermissions:1.2.0'
+    api 'com.github.yalantis:ucrop:2.2.2'
+    //    implementation 'com.github.yalantis:ucrop:2.2.2'
+    //    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    //    implementation 'com.youth.banner:banner:1.4.10'
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //    implementation 'jp.wasabeef:glide-transformations:3.3.0'
+    //    implementation 'com.sunfusheng:glideimageview:1.2.0'
+    //    implementation 'com.inuker.bluetooth:library:1.4.0'
+    //    implementation 'top.zibin:Luban:1.1.5'
+}

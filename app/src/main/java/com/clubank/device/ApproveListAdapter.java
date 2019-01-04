@@ -1,0 +1,40 @@
+package com.clubank.device;
+
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+/**
+ * 活动审批 ---申请列表Adapter
+ */
+public class ApproveListAdapter extends BaseAdapter {
+    public ApproveListAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.item_apply_list, data);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        super.display(position, v, row);
+        setEText(R.id.tv_title, row.getString("ProcessName"));
+        if (row.getInt("Remind")==0) {
+            hide(v, R.id.red_msg);
+        } else {
+            show(v, R.id.red_msg);
+        }
+        setEText(R.id.tv_apply_people, row.getString("CreateName"));
+        setEText(R.id.tv_apply_time1, row.getString("CreateTime").replace("T", " ").substring(0, 16));
+        setEText(R.id.tv_apply_place, row.getString("Address"));
+        setEText(R.id.tv_apply_time2, row.getString("StartTime").replace("T", " ").substring(0, 10) +
+                "   " + row.getString("StartTime").replace("T", " ").substring(11, 16) + "～" +
+                row.getString("EndTime").replace("T", " ").substring(11, 16));
+//        Button btn = v.findViewById(R.id.see_detail);
+//        btn.setTag(position);
+    }
+
+}

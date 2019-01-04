@@ -1,0 +1,28 @@
+package com.clubank.domain;
+
+import android.annotation.SuppressLint;
+
+@SuppressLint("SimpleDateFormat")
+public class BC {
+    public static final int PACKAGE_TYPE = 1;//1正式网 2测试网 3开发网
+    public static final String BASE_URL_INTERNET;//服务端地址
+    public static final String BASE_URL_IMAGE;//图片地址
+    public static String keyA = "SEIN2K"; // NFC keyA 默认初始密码FFFFFFFFFFFF  ，3gpos密码SEIN2K
+    public static final int cnt = 20;// 每页数据条数
+    public static final String UNSPECIFIED_IMAGE = "image/*";
+    public static final int SUCCESS = 0;// 操作成功
+    public static final int RESULT_AUTH_FAILED = -1;// 认证失败
+    public static final int RESULT_SAVE_DATA_FAIL = -3;// 保存数据失败
+    public static final int RESULT_GET_DATA_FAIL = -6;// 获取数据失败
+    public static final int RESULT_TOKEN_ERROR = -7;// token令牌数据错误
+
+    static {
+        if (PACKAGE_TYPE == 1) {
+            BASE_URL_INTERNET = "http://36.41.185.143:8082/api.ashx?action=";
+            BASE_URL_IMAGE = "http://app.theplayersclub.cn/app/";
+        } else if (PACKAGE_TYPE == 2) {
+            BASE_URL_INTERNET = "http://36.41.185.143:8044/api.ashx?action=";
+            BASE_URL_IMAGE = "http://app.theplayersclub.cn/app/";
+        }
+    }
+}

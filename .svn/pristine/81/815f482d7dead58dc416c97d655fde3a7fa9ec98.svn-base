@@ -1,0 +1,33 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+
+import com.clubank.device.op.Homepage;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BRT;
+import com.clubank.domain.Result;
+
+/**
+ * 活动申请成功界面
+ */
+public class ApplySuccessActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_apply_success);
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.go_record_list://查看申请记录
+                openIntent(ApplyRecordListActivity.class, R.string.active_record);
+                finish();
+                break;
+        }
+    }
+}
+
+
+

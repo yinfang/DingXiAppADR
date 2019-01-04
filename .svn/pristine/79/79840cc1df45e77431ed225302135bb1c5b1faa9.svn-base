@@ -1,0 +1,56 @@
+package com.clubank.device;
+
+import android.annotation.SuppressLint;
+import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+
+/**
+ * 活动申请详情 审批流程
+ */
+public class ApprovesDetailAdapter extends com.clubank.device.BaseAdapter {
+    private MyData data;
+    private int[] images = new int[]{R.mipmap.step1, R.mipmap.step2, R.mipmap.step3};
+
+    public ApprovesDetailAdapter(BaseActivity a, MyData da) {
+        super(a, R.layout.item_detail_approves, da);
+        this.data = da;
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        ImageView img=v.findViewById(R.id.pic);
+        img.setImageResource(images[position]);
+//        setImage(R.id.pic, row.getString("picUrl"));
+        setEText(R.id.name, row.getString("UserName"));
+        setEText(R.id.apply_advice, new String(Base64.decode(row.getString("StepRemarks"), Base64.NO_WRAP)));
+        int StepStatus = row.getInt("StepStatus");
+        TextView statusTv = v.findViewById(R.id.apply_result);
+        //StepStatus  0 不同意 1 同意
+        //Step	0 申请 1 馆长审批 2 体育局领导审批
+        if (StepStatus == 0) {
+            setEText(R.id.apply_result, "已否决");
+            statusTv.setTextColor(R.color.red);
+        } else if (StepStatus == 1) {
+            setEText(R.id.apply_result, "已同意");
+            statusTv.setTextColor(R.color.title_blue);
+        } else {
+            setEText(R.id.apply_result, "待审批");
+            statusTv.setTextColor(R.color.my_orange);
+        }
+        if (position == data.size() - 1) {
+            hide(v, R.id.next);
+        } else {
+            show(v, R.id.next);
+        }
+    }
+}

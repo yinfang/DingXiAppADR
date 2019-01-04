@@ -1,0 +1,54 @@
+package com.clubank.device;
+
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.clubank.domain.BC;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.ViewHolder;
+import com.clubank.whcarapp.R;
+
+/**
+ * Created by long on 17-11-24.
+ */
+
+public class ModifySafeCarPicAdapter extends BaseAdapter {
+
+    int width = 0;
+
+    public ModifySafeCarPicAdapter(BaseActivity a, MyData data) {
+        super(a, R.layout.safe_car_pic_item, data);
+        width = a.screen.getWidth() / 2;
+    }
+
+    @Override
+    protected void display(int position, View v, MyRow row) {
+        AbsListView.LayoutParams params = (AbsListView.LayoutParams) v.getLayoutParams();
+        params.height = width * 3 / 4;
+        v.setLayoutParams(params);
+        if (row.isEmpty()) {
+            show(R.id.ll_add);
+            hide(R.id.iv_show);
+        } else {
+            hide(R.id.ll_add);
+            show(R.id.iv_show);
+            boolean isNew = row.getBoolean("isNew");
+            boolean isModify = row.getBoolean("isModify");
+            ImageView ivShow = (ImageView) v.findViewById(R.id.iv_show);
+            if (isNew) {
+//                ivShow.setImageBitmap((Bitmap) row.get("bitmap"));
+                setImage(R.id.iv_show, row.get("picUrl"));
+            } else if (isModify) {
+//                ivShow.setImageBitmap((Bitmap) row.get("bitmap"));
+                setImage(R.id.iv_show, row.get("picUrl"));
+            } else {
+                setImage(R.id.iv_show, BC.BASE_IMAGE_URL + row.getString("picUrl"));
+            }
+        }
+    }
+}

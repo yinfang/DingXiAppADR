@@ -1,0 +1,191 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
+
+import com.clubank.view.AlertDialog;
+import com.clubank.device.op.LessonBookings;
+import com.clubank.device.op.LessonCancel;
+import com.clubank.device.op.LessonConfirm;
+import com.clubank.dingxi.R;
+import com.clubank.domain.BC;
+import com.clubank.domain.Criteria;
+import com.clubank.domain.MainTabEntity;
+import com.clubank.domain.Result;
+import com.clubank.util.MyAsyncTask;
+import com.clubank.util.MyData;
+import com.clubank.util.MyRow;
+import com.clubank.util.UI;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
+
+/**
+ * 预约记录
+ */
+public class BookingRecordListActivity extends BaseActivity implements OnTabSelectListener {
+    private CommonTabLayout commonTabLayout;
+    private ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+    private BookingRecordListAdapter adapter;
+    private MyData data;
+    private ListView list;
+    private Criteria criteria;
+    private int preLast;
+    private int status = 0;//状态0全部 1.未确认 2.已确认 3.已取消 4.已拒绝
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_class_order_list);
+        tabs.add(new MainTabEntity("全部", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("未确认", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("已确认", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("已签课", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        tabs.add(new MainTabEntity("已取消", R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+        commonTabLayout = findViewById(R.id.tablayout);
+        commonTabLayout.setTabData(tabs);
+        commonTabLayout.setOnTabSelectListener(this);
+        data = new MyData();
+        criteria = new Criteria();
+        preLast = 0;
+        list = findViewById(R.id.list);
+        adapter = new BookingRecordListAdapter(this, data);
+        addEmptyView(list);
+        list.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
+                                 int totalItemCount) {
+                final int lastItem = firstVisibleItem + visibleItemCount;
+                //到最后一个item时候刷新
+                if (lastItem == totalItemCount && lastItem >= criteria.PageSize) {
+                    if (preLast != lastItem) {
+                        if (data.size() >= criteria.PageSize) {//加载更多
+                            criteria.PageIndex++;
+                            refreshData();
+                        }
+                        preLast = lastItem;
+                    }
+                }
+            }
+        });
+        list.setAdapter(adapter);
+        refreshData();
+    }
+
+    @Override
+    public void refreshData() {
+        super.refreshData();
+        new MyAsyncTask(this, LessonBookings.class).run(status, criteria);
+    }
+
+    @Override
+    public void onPostExecute(Class<?> op, Result result) {
+        if (op == LessonBookings.class) {
+            if (result.code == BC.SUCCESS) {
+                data = (MyData) result.obj;
+                if (null != data && data.size() > 0) {
+                    for (MyRow ro : data) {
+                        adapter.add(ro);
+                    }
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
+                show(R.id.emptyview);
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == LessonConfirm.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(this, result.msg);
+                refreshData1();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        } else if (op == LessonCancel.class) {
+            if (result.code == BC.SUCCESS) {
+                UI.showToast(this, result.msg);
+                refreshData1();
+            } else {
+                UI.showToast(this, result.msg);
+            }
+        }
+
+    }
+
+    public void refreshData1() {
+        criteria = new Criteria();
+        preLast = 0;
+        if (null != adapter) {
+            adapter.clear();
+        }
+        refreshData();
+    }
+
+    public void doWork(View view) {
+        int pos = (int) view.getTag();
+        MyRow row = data.get(pos);
+        int aid = row.getInt("AID");
+        switch (view.getId()) {
+            case R.id.sure_class://确认约课
+                new MyAsyncTask(this, LessonConfirm.class).run(aid);
+                break;
+            case R.id.cancel_class://取消约课
+                showCancelAlert(aid);
+                break;
+        }
+    }
+
+    public void showCancelAlert(final int aid) {//取消约课
+        final AlertDialog ad = new AlertDialog(this);
+        String tips = getString(R.string.class_cancel_tip) + "\n" + getString(R.string.class_cancel_tip1);
+        ad.setTitleAndMsg(getString(R.string.cancel_class), tips);
+        ad.setNegativeButton("取消", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ad.dismiss();
+            }
+        });
+        ad.setPositiveButton("确认", 0, 0, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new MyAsyncTask(BookingRecordListActivity.this, LessonCancel.class).run(aid);
+                ad.dismiss();
+            }
+        });
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        switch (position) {
+            case 0:
+                status = 0;
+                break;
+            case 1:
+                status = 1;
+                break;
+            case 2:
+                status = 2;
+                break;
+            case 3:
+                status = 4;
+                break;
+            case 4:
+                status = 3;
+                break;
+        }
+        refreshData1();
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
+    }
+}

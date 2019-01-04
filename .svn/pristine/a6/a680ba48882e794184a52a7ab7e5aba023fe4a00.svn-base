@@ -1,0 +1,80 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+
+/**
+ * 扫码核销成功
+ */
+public class TicketScanSuccessActivity extends BaseActivity {
+    private String type;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ticketscan_success);
+        Bundle b = getIntent().getExtras();
+        MyRow ro = U.getRow(b, "row");
+        if (null != ro) {
+            setDetails(ro);
+        }
+    }
+
+    private void setDetails(MyRow row) {
+        type = row.getString("type");
+        //tyep：ticket 票务核销 lesson 签课核销
+        if (type.equals("ticket")) {
+            show(R.id.verify_ll);
+             /*setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+        setEText(R.id.succ_desc, getString(R.string.verify_success));
+        setEText(R.id.succ_desc1, getString(R.string.succ_desc));
+        setEText(R.id.title, row.getString(""));
+        setEText(R.id.num, row.getString(""));
+        setEText(R.id.time, row.getString("").substring(0, 16));
+        setEText(R.id.place, row.getString(""));*/
+
+        } else if (type.equals("lesson")) {
+            show(R.id.class_ll);
+          /*  ((Button) findViewById(R.id.finish)).setText(getString(R.string.finish));
+            setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.class_succ));
+            setEText(R.id.succ_desc, getString(R.string.class_success));
+            hide(R.id.succ_desc1);
+            setEText(R.id.class_name, row.getString(""));
+            setEText(R.id.class_time, row.getString("").substring(0, 16));
+            setEText(R.id.class_member, row.getString(""));*/
+
+        }
+
+       /* show(R.id.xiao_ll);
+        setImage(R.id.succ_img, getResources().getDrawable(R.mipmap.verify_succ));
+        setEText(R.id.succ_desc, getString(R.string.xiao_success));
+        setEText(R.id.succ_desc1, getString(R.string.succ_desc1));
+        setEText(R.id.title1, row.getString(""));
+        setEText(R.id.time1, row.getString("").substring(0, 16));
+        setEText(R.id.place1, row.getString(""));
+        setEText(R.id.seat, row.getString(""));*/
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.finish://返回主页
+                String text = getEText(R.id.finish);
+                if (type.equals("ticket")) {
+                    openIntent(TicketScanActivity.class, R.string.ticket_verify);
+                    finish();
+                } else {
+                    openIntent(MainActivity.class, R.string.app_name);
+                    finish();
+                }
+                break;
+        }
+    }
+}
+
+
+

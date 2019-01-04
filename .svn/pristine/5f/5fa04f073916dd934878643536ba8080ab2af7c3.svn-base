@@ -1,0 +1,24 @@
+package com.clubank.device.op;
+
+import android.content.Context;
+
+import com.clubank.domain.C;
+import com.clubank.domain.Result;
+import com.clubank.util.MyRow;
+
+/**
+ * 首页轮播图
+ */
+public class BannIconList extends OPBase {
+    public BannIconList(Context context) {
+        super(context);
+    }
+
+    @Override
+    public Result execute(Object... args) throws Exception {
+
+        MyRow row = new MyRow();
+        Result result = operateHttp(C.HTTP_POST, "banner", row);
+        return result;
+    }
+}

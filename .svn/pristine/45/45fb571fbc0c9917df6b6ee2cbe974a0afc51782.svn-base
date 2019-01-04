@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="D:\StudioProject\DingXiApp\common\src\main\res"/><source path="D:\StudioProject\DingXiApp\common\build\generated\res\rs\debug"/><source path="D:\StudioProject\DingXiApp\common\build\generated\res\resValues\debug"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="D:\StudioProject\DingXiApp\common\src\main\res"><file name="backward_enter" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\backward_enter.xml" qualifiers="" type="anim"/><file name="backward_exit" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\backward_exit.xml" qualifiers="" type="anim"/><file name="book_slide_right_in" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\book_slide_right_in.xml" qualifiers="" type="anim"/><file name="book_slide_two_in" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\book_slide_two_in.xml" qualifiers="" type="anim"/><file name="forward_enter" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\forward_enter.xml" qualifiers="" type="anim"/><file name="forward_exit" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\forward_exit.xml" qualifiers="" type="anim"/><file name="slide_left_in" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\slide_left_in.xml" qualifiers="" type="anim"/><file name="slide_left_out" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\slide_left_out.xml" qualifiers="" type="anim"/><file name="slide_right_in" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\slide_right_in.xml" qualifiers="" type="anim"/><file name="slide_right_out" path="D:\StudioProject\DingXiApp\common\src\main\res\anim\slide_right_out.xml" qualifiers="" type="anim"/><file name="scale_with_alpha" path="D:\StudioProject\DingXiApp\common\src\main\res\animator\scale_with_alpha.xml" qualifiers="" type="animator"/><file name="bg_button" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\bg_button.xml" qualifiers="" type="drawable"/><file name="bg_title_button" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\bg_title_button.xml" qualifiers="" type="drawable"/><file name="bg_translucent" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\bg_translucent.xml" qualifiers="" type="drawable"/><file name="black_background" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\black_background.xml" qualifiers="" type="drawable"/><file name="blue_translucent" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\blue_translucent.xml" qualifiers="" type="drawable"/><file name="d_transparent" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\d_transparent.xml" qualifiers="" type="drawable"/><file name="gray_radius" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\gray_radius.xml" qualifiers="" type="drawable"/><file name="my_orange" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\my_orange.xml" qualifiers="" type="drawable"/><file name="my_orange_pressed" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\my_orange_pressed.xml" qualifiers="" type="drawable"/><file name="rectangle" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\rectangle.xml" qualifiers="" type="drawable"/><file name="translucent" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\translucent.xml" qualifiers="" type="drawable"/><file name="transparent" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\transparent.xml" qualifiers="" type="drawable"/><file name="white_radius" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable\white_radius.xml" qualifiers="" type="drawable"/><file name="alert" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\alert.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ball_blue" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\ball_blue.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ball_orange" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\ball_orange.png" qualifiers="xhdpi-v4" type="drawable"/><file name="choose_picture" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\choose_picture.png" qualifiers="xhdpi-v4" type="drawable"/><file name="cm_logout" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\cm_logout.png" qualifiers="xhdpi-v4" type="drawable"/><file name="emptylogo" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\emptylogo.png" qualifiers="xhdpi-v4" type="drawable"/><file name="flashlight" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\flashlight.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_back" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\ic_back.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_home" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\ic_home.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_logo" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\ic_logo.png" qualifiers="xhdpi-v4" type="drawable"/><file name="photoblum" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\photoblum.png" qualifiers="xhdpi-v4" type="drawable"/><file name="placeholderimg" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\placeholderimg.png" qualifiers="xhdpi-v4" type="drawable"/><file name="take_picture" path="D:\StudioProject\DingXiApp\common\src\main\res\drawable-xhdpi\take_picture.png" qualifiers="xhdpi-v4" type="drawable"/><file name="banner" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\banner.xml" qualifiers="" type="layout"/><file name="custom_dialog" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\custom_dialog.xml" qualifiers="" type="layout"/><file name="dialog_list" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\dialog_list.xml" qualifiers="" type="layout"/><file name="dialog_list_item" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\dialog_list_item.xml" qualifiers="" type="layout"/><file name="header" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\header.xml" qualifiers="" type="layout"/><file name="image_dialog" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\image_dialog.xml" qualifiers="" type="layout"/><file name="list_empty_view" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\list_empty_view.xml" qualifiers="" type="layout"/><file name="list_footer" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\list_footer.xml" qualifiers="" type="layout"/><file name="popwindow_light" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\popwindow_light.xml" qualifiers="" type="layout"/><file name="scan" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\scan.xml" qualifiers="" type="layout"/><file name="text" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\text.xml" qualifiers="" type="layout"/><file name="webview" path="D:\StudioProject\DingXiApp\common\src\main\res\layout\webview.xml" qualifiers="" type="layout"/><file name="beep" path="D:\StudioProject\DingXiApp\common\src\main\res\raw\beep.ogg" qualifiers="" type="raw"/><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\anim_shop_btn_attrs.xml" qualifiers=""><declare-styleable name="AnimShopButton">
+        
+        <attr format="boolean" name="isAddFillMode"/>
+        
+        <attr format="color" name="addEnableBgColor"/>
+        <attr format="color" name="addEnableFgColor"/>
+        
+        <attr format="color" name="addDisableBgColor"/>
+        <attr format="color" name="addDisableFgColor"/>
+
+        
+        <attr format="boolean" name="isDelFillMode"/>
+        
+        <attr format="color" name="delEnableBgColor"/>
+        <attr format="color" name="delEnableFgColor"/>
+        
+        <attr format="color" name="delDisableBgColor"/>
+        <attr format="color" name="delDisableFgColor"/>
+
+        
+        <attr format="dimension" name="radius"/>
+        
+        <attr format="dimension" name="circleStrokeWidth"/>
+        
+        <attr format="dimension" name="lineWidth"/>
+
+        
+        <attr format="dimension" name="gapBetweenCircle"/>
+        
+        <attr format="dimension" name="numTextSize"/>
+        
+        <attr format="integer" name="maxCount"/>
+        <attr format="integer" name="count"/>
+
+        
+        <attr format="boolean" name="ignoreHintArea"/>
+
+        
+        <attr format="string" name="hintText"/>
+        <attr format="color" name="hintBgColor"/>
+        <attr format="color" name="hintFgColor"/>
+        <attr format="dimension" name="hingTextSize"/>
+        <attr format="dimension" name="hintBgRoundValue"/>
+
+        <attr format="integer" name="perAnimDuration"/>
+
+        
+        <attr format="color" name="replenishTextColor"/>
+        <attr format="dimension" name="replenishTextSize"/>
+        <attr format="string" name="replenishText"/>
+
+    </declare-styleable></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\attrs.xml" qualifiers=""><declare-styleable name="ViewPagerIndicator">
+        <attr format="reference" name="TabPageIndicatorStyle"/>
+        <attr format="reference" name="UnderlinePageIndicator"/>
+    </declare-styleable><declare-styleable name="UnderlinePageIndicator">
+        <attr format="boolean" name="fades"/>
+        <attr format="integer" name="fadeDelay"/>
+        <attr format="integer" name="fadeLength"/>
+        <attr format="color" name="selectedColor"/>
+    </declare-styleable><declare-styleable name="RoundImageView">
+        <attr format="dimension" name="border_width"/>
+        <attr format="color" name="border_color"/>
+    </declare-styleable><declare-styleable name="SwipeMenuLayout">
+        <attr format="boolean" name="swipeEnable"/>
+        <attr format="boolean" name="ios"/>
+        <attr format="boolean" name="leftSwipe"/>
+    </declare-styleable><declare-styleable name="Banner">
+        <attr format="integer" name="delay_time"/>
+        <attr format="integer" name="scroll_time"/>
+        <attr format="boolean" name="is_auto_play"/>
+        <attr format="color|reference" name="title_background"/>
+        <attr format="color" name="title_textcolor"/>
+        <attr format="dimension" name="title_textsize"/>
+        <attr format="dimension" name="title_height"/>
+        <attr format="dimension" name="indicator_width"/>
+        <attr format="dimension" name="indicator_height"/>
+        <attr format="dimension" name="indicator_margin"/>
+        <attr format="reference" name="indicator_drawable_selected"/>
+        <attr format="reference" name="indicator_drawable_unselected"/>
+        <attr format="reference" name="banner_layout"/>
+        <attr format="reference" name="banner_default_image"/>
+        <attr format="enum" name="image_scale_type">
+            <enum name="center" value="0"/>
+            <enum name="center_crop" value="1"/>
+            <enum name="center_inside" value="2"/>
+            <enum name="fit_center" value="3"/>
+            <enum name="fit_end" value="4"/>
+            <enum name="fit_start" value="5"/>
+            <enum name="fit_xy" value="6"/>
+            <enum name="matrix" value="7"/>
+        </attr>
+        
+        
+    </declare-styleable></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\colors.xml" qualifiers=""><color name="list_odd">#ffffff</color><color name="list_even">#f7f7f7</color><color name="tab_title">#de0f0f</color><color name="black">#000000</color><color name="white">#FFFFFF</color><color name="gray_paw">#BEBEBE</color><color name="my_orange">#fffa8400</color><color name="my_orange_pressed">#99fa8400</color><color name="transparent">#00000000</color><color name="translucent">#334080b0</color><color name="white_aa">#aaffffff</color><color name="gray_18">#181818</color><color name="gray_23">#232323</color><color name="gray_31">#313131</color><color name="gray_50">#505050</color><color name="gray_62">#626262</color><color name="gray_82">#828282</color><color name="gray_a3">#a3a3a3</color><color name="gray_b4">#b4b4b4</color><color name="gray_c8">#c8c8c8</color><color name="main_gray">#646464</color><color name="blue_cb">#0195cb</color><color name="gray_cd">#cdcdcd</color><color name="gray_db">#dbdbdb</color><color name="gray_e0">#e0e0e0</color><color name="gray_e6">#e6e6e6</color><color name="gray_eb">#ebebeb</color><color name="gray_ef">#efefef</color><color name="gray_f0">#f0f0f0</color><color name="gray_f5">#f5f5f5</color><color name="title_blue">#3498DB</color><color name="red">#ff0000</color></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\dimens.xml" qualifiers=""><dimen name="image_thumbnail_size">100dp</dimen><dimen name="image_thumbnail_spacing">1dp</dimen><dimen name="image_detail_pager_margin">80dp</dimen><dimen name="default_image_grid_item_text_height">26dp</dimen><dimen name="default_image_grid_item_text_size">13sp</dimen><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="activity_vertical_margin">16dp</dimen><dimen name="view_small_padding">1dp</dimen><dimen name="view_padding">6dp</dimen></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\ids.xml" qualifiers=""><item name="auto_focus" type="id"/><item name="decode" type="id"/><item name="decode_failed" type="id"/><item name="decode_succeeded" type="id"/><item name="encode_failed" type="id"/><item name="encode_succeeded" type="id"/><item name="launch_product_query" type="id"/><item name="quit" type="id"/><item name="restart_preview" type="id"/><item name="return_scan_result" type="id"/><item name="search_book_contents_failed" type="id"/><item name="search_book_contents_succeeded" type="id"/><item name="bannerContainer" type="id"/><item name="bannerViewPager" type="id"/><item name="circleIndicator" type="id"/><item name="numIndicator" type="id"/><item name="titleView" type="id"/><item name="bannerTitle" type="id"/><item name="numIndicatorInside" type="id"/><item name="indicatorInside" type="id"/><item name="bannerDefaultImage" type="id"/></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\integers.xml" qualifiers=""><integer name="anim_duration">300</integer></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\scanner_colors.xml" qualifiers=""><color name="viewfinder_mask">#60000000</color><color name="possible_result_points">#c0ffff00</color><color name="viewfinder_laser">#ffff0000</color><color name="viewfinder_frame">#ff88ae00</color><color name="result_view">#b0000000</color></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\strings.xml" qualifiers=""><string name="dummy"> </string><string name="save_picture">保存图片</string><string formatted="false" name="save_picture_as">图片保存在 %s</string><string name="save_picture_failed">保存图片失败</string><string name="minute">分钟</string><string name="hour">小时</string><string name="day">天</string><string name="month1">1月</string><string name="yestoday">昨天</string><string name="photo_file">相册</string><string name="open_light">开灯</string><string name="scan_text">将二维码放入框内, 即可自动扫描</string><string name="network_timeout">网络访问超时 </string><string name="no_data_found">暂无数据</string><string name="network_problem">网络不给力，请确保网络畅通</string><string name="illegal_access">无效的访问，请在登录后操作</string><string name="club_offline">球会端通讯错误，请联系管理员。</string><string name="operation_failed">操作失败 ！</string><string name="interface_error">服务器异常</string><string name="server_error">服务器异常</string><string name="unexpected_error">意外错误：</string><string name="error">错误</string><string name="msg_info">信息</string><string name="confirm">确认</string><string name="prompt">提示</string><string name="no_pic_crop_tool">无法打开图片剪裁工具</string><string formatted="false" name="invalid_input">请输入有效的 %s</string><string formatted="false" name="operation_success">操作成功！</string><string name="get_verify_code">验证码</string><string name="invalid_verify_code">无效的验证码</string><string formatted="true" name="wait">%d 秒</string><string name="cancel">取消</string><string name="ok">确定</string><string name="no_new_version">目前是最新版本 </string><string name="found_new_version">发现新版本 %s,</string><string name="force_download">您需要下载新版本才能正常使用系统功能。</string><string name="ask_download">是否要下载？</string><string name="check_version">检查版本</string><string name="delete">删除</string><string name="loading_data">正在加载</string><string name="app_name"/><string name="downloading_please_wait">正在下载，请稍候……</string><string name="please_relogin">请重新登录</string></file><file path="D:\StudioProject\DingXiApp\common\src\main\res\values\styles.xml" qualifiers=""><style name="WaitingDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style></file><file name="file_paths" path="D:\StudioProject\DingXiApp\common\src\main\res\xml\file_paths.xml" qualifiers="" type="xml"/></source><source path="D:\StudioProject\DingXiApp\common\build\generated\res\rs\debug"/><source path="D:\StudioProject\DingXiApp\common\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="D:\StudioProject\DingXiApp\common\src\debug\res"/></dataSet><dataSet config="debug" generated-set="debug$Generated"><source path="D:\StudioProject\DingXiApp\common\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="AnimShopButton"><attr format="boolean" name="isAddFillMode"/><attr format="color" name="addEnableBgColor"/><attr format="color" name="addEnableFgColor"/><attr format="color" name="addDisableBgColor"/><attr format="color" name="addDisableFgColor"/><attr format="boolean" name="isDelFillMode"/><attr format="color" name="delEnableBgColor"/><attr format="color" name="delEnableFgColor"/><attr format="color" name="delDisableBgColor"/><attr format="color" name="delDisableFgColor"/><attr format="dimension" name="radius"/><attr format="dimension" name="circleStrokeWidth"/><attr format="dimension" name="lineWidth"/><attr format="dimension" name="gapBetweenCircle"/><attr format="dimension" name="numTextSize"/><attr format="integer" name="maxCount"/><attr format="integer" name="count"/><attr format="boolean" name="ignoreHintArea"/><attr format="string" name="hintText"/><attr format="color" name="hintBgColor"/><attr format="color" name="hintFgColor"/><attr format="dimension" name="hingTextSize"/><attr format="dimension" name="hintBgRoundValue"/><attr format="integer" name="perAnimDuration"/><attr format="color" name="replenishTextColor"/><attr format="dimension" name="replenishTextSize"/><attr format="string" name="replenishText"/></declare-styleable><declare-styleable name="ViewPagerIndicator"><attr format="reference" name="TabPageIndicatorStyle"/><attr format="reference" name="UnderlinePageIndicator"/></declare-styleable><declare-styleable name="Banner"><attr format="integer" name="delay_time"/><attr format="integer" name="scroll_time"/><attr format="boolean" name="is_auto_play"/><attr format="color|reference" name="title_background"/><attr format="color" name="title_textcolor"/><attr format="dimension" name="title_textsize"/><attr format="dimension" name="title_height"/><attr format="dimension" name="indicator_width"/><attr format="dimension" name="indicator_height"/><attr format="dimension" name="indicator_margin"/><attr format="reference" name="indicator_drawable_selected"/><attr format="reference" name="indicator_drawable_unselected"/><attr format="reference" name="banner_layout"/><attr format="reference" name="banner_default_image"/><attr format="enum" name="image_scale_type">
+            <enum name="center" value="0"/>
+            <enum name="center_crop" value="1"/>
+            <enum name="center_inside" value="2"/>
+            <enum name="fit_center" value="3"/>
+            <enum name="fit_end" value="4"/>
+            <enum name="fit_start" value="5"/>
+            <enum name="fit_xy" value="6"/>
+            <enum name="matrix" value="7"/>
+        </attr></declare-styleable><declare-styleable name="RoundImageView"><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/></declare-styleable><declare-styleable name="UnderlinePageIndicator"><attr format="boolean" name="fades"/><attr format="integer" name="fadeDelay"/><attr format="integer" name="fadeLength"/><attr format="color" name="selectedColor"/></declare-styleable><declare-styleable name="SwipeMenuLayout"><attr format="boolean" name="swipeEnable"/><attr format="boolean" name="ios"/><attr format="boolean" name="leftSwipe"/></declare-styleable></configuration></mergedItems></merger>

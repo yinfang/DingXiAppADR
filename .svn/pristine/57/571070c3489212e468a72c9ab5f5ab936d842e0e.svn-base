@@ -1,0 +1,44 @@
+package com.clubank.device;
+
+import android.os.Bundle;
+import android.view.View;
+
+import com.clubank.dingxi.R;
+import com.clubank.util.MyRow;
+import com.clubank.util.U;
+
+/**
+ * 课程预约成功
+ */
+public class BookingClassSuccessActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_booking_class_success);
+        Bundle b = getIntent().getExtras();
+        if (null != b) {
+            MyRow ro = U.getRow(b, "row");
+//            setDetails(ro);
+        }
+    }
+
+    private void setDetails(MyRow row) {
+        setImage(R.id.class_name, row.getString("LessonName"));
+        setEText(R.id.class_time, row.getString("AppointTime"));
+        setEText(R.id.total_class, row.getString("ConsumeHour") + "节/" + row.getString("TotalHour") + "节");
+        setEText(R.id.mark_info, row.getString("Remark"));
+    }
+
+    public void doWork(View view) {
+        switch (view.getId()) {
+            case R.id.finish://返回主页
+                openIntent(MainActivity.class, R.string.app_name);
+                finish();
+                break;
+        }
+    }
+}
+
+
+

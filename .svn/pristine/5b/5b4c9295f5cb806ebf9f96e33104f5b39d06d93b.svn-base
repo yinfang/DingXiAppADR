@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_sele_fen_dian"
+        android:orientation="vertical">
+
+        <TextView
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/gray_new"
+            android:text="请选择" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5px"
+            android:background="@color/gray_new"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_list_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@+id/ll_branch_sel"
+                android:layout_width="match_parent"
+                android:divider="@color/gray_new"
+                android:dividerHeight="0.5px"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                />
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7px"
+            android:background="@color/gray_cd_line"
+            />
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:onClick="doWork"
+            android:text="取消"
+            android:textColor="@color/my_red"
+            android:textSize="15dp" />
+
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</LinearLayout>

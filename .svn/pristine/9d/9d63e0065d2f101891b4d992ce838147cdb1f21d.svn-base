@@ -1,0 +1,378 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <LinearLayout
+                    android:id="@+id/active_title_ll"
+                    style="@style/LinearLayoutClickStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_title1" />
+
+                    <TextView
+                        android:id="@+id/active_title"
+                        style="@style/TextGrayStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_gray" />
+
+                <LinearLayout
+                    android:id="@+id/start_time_ll"
+                    style="@style/LinearLayoutClickStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/start_time1" />
+
+                    <TextView
+                        android:id="@+id/start_time"
+                        style="@style/TextGrayStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_gray" />
+
+                <LinearLayout
+                    android:id="@+id/end_time_ll"
+                    style="@style/LinearLayoutClickStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/end_time1" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        style="@style/TextGrayStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_gray" />
+
+                <LinearLayout
+                    android:id="@+id/active_place_ll"
+                    style="@style/LinearLayoutClickStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_place1" />
+
+                    <TextView
+                        android:id="@+id/active_place"
+                        style="@style/TextGrayStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/bg_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <LinearLayout
+                    android:id="@+id/active_detail_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_detail" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_gray" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/active_detail"
+                style="@style/TextGrayStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:background="@null"
+                android:minHeight="@dimen/actionbar_heigh"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/bg_gray" />
+
+            <LinearLayout
+                android:id="@+id/pics_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/apply_data_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apply_data" />
+
+                    <TextView
+                        style="@style/SmallGrayTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/see_large_img"
+                        android:singleLine="true"
+                        android:textColor="@color/blue_cb"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/bg_gray" />
+
+                <com.clubank.View.MyGridList
+                    android:id="@+id/pics_gridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="3"
+                    android:scrollbars="none"
+                    android:verticalSpacing="10dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/bg_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/approve_sort_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/actionbar_heigh"
+                    android:gravity="center_vertical"
+                    android:text="@string/approve_sort" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/bg_gray" />
+
+                <com.clubank.View.ListViewInScrollView
+                    android:id="@+id/approves_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/apply_btn_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="20dp"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/modify_apply"
+                    style="@style/ButtonStyleConorWhite"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/active_button"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="@string/modify_apply" />
+
+                <Button
+                    android:id="@+id/cancel_apply"
+                    style="@style/ButtonStyleConor"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/active_button"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel_apply" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/approve_btn_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_gray"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/your_advice" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp">
+
+                    <Button
+                        android:id="@+id/approve_modify"
+                        style="@style/ButtonStyleConorWhite"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/active_button"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:text="@string/approve_modify" />
+
+                    <Button
+                        android:id="@+id/disapprove"
+                        style="@style/ButtonStyleConorWhite"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/active_button"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:text="@string/disapprove" />
+
+                    <Button
+                        android:id="@+id/approve_sure"
+                        style="@style/ButtonStyleConor"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/active_button"
+                        android:layout_weight="1"
+                        android:text="@string/approve_sure" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

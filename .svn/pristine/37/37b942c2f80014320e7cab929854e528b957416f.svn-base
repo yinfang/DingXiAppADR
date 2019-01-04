@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="header_height">45dp</dimen>
+    <dimen name="active_button">40dp</dimen>
+    <dimen name="actionbar_heigh">50dp</dimen>
+    <dimen name="header_image_height">25dp</dimen>
+    <dimen name="header_image_width">25dp</dimen>
+
+</resources>
