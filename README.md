@@ -18,8 +18,7 @@ Crodova 环境配置：
 4.安装git，path配置环境变量；
 5.安装Cordova ： npm install -g cordova
   检查Cordova版本：cordova -v
-6.cd到目标盘 创建Cordova项目目录和Cordova应用：cordova create 目录名称 io.cordova.hellocordova 应用的标题
-   io.cordova.hellocordova 是默认的反向域值。 如果可能，您应该使用您自己的域值。
+6.cd到目标盘 创建Cordova项目目录和Cordova应用：cordova create 项目名称 包名 应用名称
 7.添加平台 cordova platform add android 
   删除平台 cordova platform rm android
 8.构建和运行 cordova build android
