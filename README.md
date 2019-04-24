@@ -5,6 +5,10 @@ webview控件使用及优化：
 https://mp.weixin.qq.com/s/Rn7s31nxxY3vWnFRyjyjiA
 https://tech.meituan.com/2017/06/09/webviewperf.html
 
+安卓处理图片oom解决办法：https://www.cnblogs.com/android-blogs/p/5586480.html
+
+
+
 adb连接模拟器/真机：
 1.查看adb（真机）或模拟器所在进程号；
 2. netstat -ano | findstr pid；
