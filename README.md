@@ -7,6 +7,7 @@ https://tech.meituan.com/2017/06/09/webviewperf.html
 
 安卓处理图片oom解决办法：https://www.cnblogs.com/android-blogs/p/5586480.html
 
+安卓各版本sdk  jdk 屏幕密度 对应关系：https://blog.csdn.net/u010825468/article/details/78909550
 
 
 adb连接模拟器/真机：
