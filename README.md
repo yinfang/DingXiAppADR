@@ -5,6 +5,8 @@ webview控件使用及优化：
 https://mp.weixin.qq.com/s/Rn7s31nxxY3vWnFRyjyjiA
 https://tech.meituan.com/2017/06/09/webviewperf.html
 
+base64编码图片转换：http://www.vgot.net/test/image2base64.php?
+
 安卓处理图片oom解决办法：https://www.cnblogs.com/android-blogs/p/5586480.html
 
 安卓各版本sdk  jdk 屏幕密度 对应关系：https://blog.csdn.net/u010825468/article/details/78909550
